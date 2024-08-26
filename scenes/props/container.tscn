@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://btdk7rw5rj4uf"]
+
+[ext_resource type="Texture2D" uid="uid://w521apwxegk6" path="res://assets/sprites/Containers_3.png" id="1_1e5bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p321t"]
+size = Vector2(92, 74)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -55)
+texture = ExtResource("1_1e5bn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, -38)
+shape = SubResource("RectangleShape2D_p321t")

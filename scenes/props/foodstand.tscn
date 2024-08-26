@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2xqoaqjypr5r"]
+
+[ext_resource type="Texture2D" uid="uid://bngfth1o67o3k" path="res://assets/sprites/Food_Stand.png" id="1_j6co1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_625g0"]
+size = Vector2(141, 159)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -124)
+texture = ExtResource("1_j6co1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10.5, -79.5)
+shape = SubResource("RectangleShape2D_625g0")

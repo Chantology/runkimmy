@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3hxtnu5kee7f"]
+
+[ext_resource type="Texture2D" uid="uid://dfg1gu0v2gtoe" path="res://assets/sprites/Traffic_Cone.png" id="1_mevh2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w6rg"]
+size = Vector2(19, 30)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -58)
+texture = ExtResource("1_mevh2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -17)
+shape = SubResource("RectangleShape2D_3w6rg")
