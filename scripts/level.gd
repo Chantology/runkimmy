@@ -40,6 +40,8 @@ func new_game():
 	show_score()
 	game_running = false
 	difficulty = 0
+	#ground height: added for debugging purposes
+	print(ground_height)
 	
 	#reset the nodes
 	$player.position = PLAYER_START_POS
@@ -77,9 +79,9 @@ func _process(_delta):
 			$ground.position.x += screen_size.x
 			
 		#update obstacles that are off screen:  ~~~NOT WORKING min 41 in Video ~~~
-		#for obs in obstacles: 
-			#if obs.position.x < ($Camera2D.position.x - screen_size.x):
-				#remove_obs(obs)
+		for obs in obstacles: 
+			if obs.position.x < ($Camera2D.position.x - screen_size.x):
+				remove_obs(obs)
 	else: 
 		if Input.is_action_just_pressed("ui_accept"):
 			game_running = true
@@ -96,17 +98,20 @@ func generate_obs():
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_scale = obs.get_node("Sprite2D").scale
 			var obs_x : int = screen_size.x + score + 100 + (i * 100)
-			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) + 5
+			#Note: 525 is hardcoded value for height
+			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 525
 			last_obs = obs
 			add_obs(obs, obs_x, obs_y)
+			#print position of the obstacles - added for debugging purposes
+			print(obs.position)
 	
 		
 func add_obs(obs, x, y):
-	obs.position = Vector2i(x, y)
+	obs.global_position = Vector2i(x, y)
 	add_child(obs)
 	obstacles.append(obs)
 
-#func remove_obs(): ~~~NOT WORKING min 41 in Video ~~~
+func remove_obs(obs): 
 	obs.queue_free()
 	obstacles.erase(obs)
 	
