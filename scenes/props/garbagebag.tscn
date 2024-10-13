@@ -3,15 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://duv1w76s2hdht" path="res://assets/sprites/Garbage_Bag.png" id="1_aciey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khli5"]
-size = Vector2(23, 31)
+size = Vector2(46, 87)
 
 [node name="Area2D" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -20)
+position = Vector2(-12, 64)
+scale = Vector2(2.31168, 2.80223)
 texture = ExtResource("1_aciey")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4.5, -16.5)
+position = Vector2(0, 73)
 shape = SubResource("RectangleShape2D_khli5")

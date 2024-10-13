@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://bqj6pilvhek3c" path="res://assets/sprites/Bin_1.png" id="1_3j45q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lujpc"]
-size = Vector2(35, 50)
+size = Vector2(38.6364, 58.3333)
 
 [node name="Area2D" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -49)
+position = Vector2(0, -32)
+scale = Vector2(2.04, 1.92)
 texture = ExtResource("1_3j45q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
-position = Vector2(4.5, 23)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 7)
+scale = Vector2(1.76, 1.44)
 shape = SubResource("RectangleShape2D_lujpc")

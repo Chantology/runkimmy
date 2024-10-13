@@ -3,15 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://crdneha3m8wpj" path="res://assets/sprites/Barrel.png" id="1_ujf4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yexae"]
-size = Vector2(52, 65)
+size = Vector2(58, 96.25)
 
 [node name="Area2D" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -57)
+position = Vector2(0, -52)
+scale = Vector2(-1.26284, 1.51989)
 texture = ExtResource("1_ujf4p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -33.5)
+position = Vector2(-1, -15.875)
 shape = SubResource("RectangleShape2D_yexae")

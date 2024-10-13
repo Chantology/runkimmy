@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://w521apwxegk6" path="res://assets/sprites/Containers_3.png" id="1_1e5bn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p321t"]
-size = Vector2(92, 74)
+size = Vector2(163, 53.1818)
 
 [node name="Area2D" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -55)
+position = Vector2(0, -52)
+scale = Vector2(1.76, 1.68)
 texture = ExtResource("1_1e5bn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -38)
+position = Vector2(6.5, -21.5)
+scale = Vector2(1, 2.2)
 shape = SubResource("RectangleShape2D_p321t")

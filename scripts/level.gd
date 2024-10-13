@@ -19,6 +19,7 @@ var difficulty
 const MAX_DIFFICULTY : int = 2
 var score : int
 const SCORE_MODIFIER : int = 10
+var high_score : int
 var speed : float
 const START_SPEED : float = 10.0
 const SPEED_MODIFIER : int = 5000
@@ -32,6 +33,7 @@ var last_obs
 func _ready():
 	screen_size = get_window().size
 	ground_height = $ground.get_node("Sprite2D").texture.get_height()
+	$GameOver.get_node("Button").pressed.connect(new_game)
 	new_game()
 
 func new_game():
@@ -39,7 +41,14 @@ func new_game():
 	score = 0
 	show_score()
 	game_running = false
+	get_tree().paused = false
 	difficulty = 0
+	
+	#delete all obstacles
+	for obs in obstacles:
+		obs.queue_free()
+	obstacles.clear()
+	
 	#ground height: added for debugging purposes
 	print(ground_height)
 	
@@ -49,8 +58,9 @@ func new_game():
 	$Camera2D.position = CAM_START_POS
 	$ground.position = Vector2i (0, 0)
 	
-	#reset HUD
+	#reset HUD and Game Over Screen
 	$HUD.get_node("GameStartLabel").show()
+	$GameOver.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -108,6 +118,7 @@ func generate_obs():
 		
 func add_obs(obs, x, y):
 	obs.global_position = Vector2i(x, y)
+	obs.body_entered.connect(hit_obs)
 	add_child(obs)
 	obstacles.append(obs)
 
@@ -115,11 +126,25 @@ func remove_obs(obs):
 	obs.queue_free()
 	obstacles.erase(obs)
 	
+func hit_obs(body):
+	if body.name == "player":
+		game_over()
 
 func show_score():
 	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score / SCORE_MODIFIER)
+	
+func check_high_score():
+	if score > high_score:
+		high_score = score
+		$HUD.get_node("HiScoreLabel").text = "HIGH SCORE:" + str(high_score / SCORE_MODIFIER)
 
 func adjust_difficulty():
 	difficulty = score / SPEED_MODIFIER
 	if difficulty > MAX_DIFFICULTY:
 		difficulty = MAX_DIFFICULTY
+
+func game_over():
+	check_high_score()
+	get_tree().paused = true
+	game_running = false 
+	$GameOver.show()

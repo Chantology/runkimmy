@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bngfth1o67o3k" path="res://assets/sprites/Food_Stand.png" id="1_j6co1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_625g0"]
-size = Vector2(141, 159)
+size = Vector2(83, 135)
 
 [node name="Area2D" type="Area2D"]
 
@@ -13,5 +13,5 @@ position = Vector2(0, -59)
 texture = ExtResource("1_j6co1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10.5, -17)
+position = Vector2(13.5, -17.5)
 shape = SubResource("RectangleShape2D_625g0")

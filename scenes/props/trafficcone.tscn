@@ -3,15 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://dfg1gu0v2gtoe" path="res://assets/sprites/Traffic_Cone.png" id="1_mevh2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3w6rg"]
-size = Vector2(19, 30)
+size = Vector2(36, 87.5)
 
 [node name="Area2D" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -58)
+position = Vector2(-1.00001, -39)
+scale = Vector2(2.65156, 2.89156)
 texture = ExtResource("1_mevh2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -17)
+position = Vector2(3, 80)
 shape = SubResource("RectangleShape2D_3w6rg")
