@@ -23,7 +23,8 @@ var high_score : int
 var speed : float
 const START_SPEED : float = 10.0
 const SPEED_MODIFIER : int = 5000
-const MAX_SPEED : int = 25
+#MAX_SPEED was 25 before
+const MAX_SPEED : int = 50
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -88,7 +89,7 @@ func _process(_delta):
 		if $Camera2D.position.x - $ground.position.x > screen_size.x * 1.7:
 			$ground.position.x += screen_size.x
 			
-		#update obstacles that are off screen:  ~~~NOT WORKING min 41 in Video ~~~
+		#update obstacles that are off screen:
 		for obs in obstacles: 
 			if obs.position.x < ($Camera2D.position.x - screen_size.x):
 				remove_obs(obs)
@@ -98,8 +99,8 @@ func _process(_delta):
 			$HUD.get_node("GameStartLabel").hide()
 
 func generate_obs():
-	#Generate ground obstacles -- seems to be not working: no obstacles appearing!!!
-	if obstacles.is_empty() or last_obs.position.x < score + randi_range(300, 500):
+	#Generate ground obstacles -- randi_range was (300,500) before
+	if obstacles.is_empty() or last_obs.position.x < score + randi_range(5, 500):
 		var obs_type = obstacle_types[randi() % obstacle_types.size()]
 		var obs
 		var max_obs = difficulty + 1

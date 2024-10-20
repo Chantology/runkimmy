@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbqhvn0tgmsnf"]
+
+[ext_resource type="Texture2D" uid="uid://bv8ioauwdwjgy" path="res://assets/logos/chantology_logo_v001.png" id="1_7ga75"]
+[ext_resource type="Script" path="res://scripts/splash_screen_manager.gd" id="1_ouhw5"]
+
+[node name="splash_screen_manager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ouhw5")
+in_time = null
+face_in_time = null
+paused_time = null
+fade_out_time = null
+out_time = null
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_7ga75")
