@@ -102,26 +102,33 @@ func generate_obs():
 	#Generate ground obstacles -- randi_range was (300,500) before
 	if obstacles.is_empty() or last_obs.position.x < score + randi_range(5, 500):
 		var obs_type = obstacle_types[randi() % obstacle_types.size()]
-		var obs
+		#var obs
+		var obs = obs_type.instantiate()
 		var max_obs = difficulty + 1
 		for i in range(randi() % max_obs + 1):
 			obs = obs_type.instantiate()
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_x : int = screen_size.x + score + 100 + (i * 100)
+			#Obstacles Spawning from out of screen, ChatGPT suggest to using this instead of screen_size.x
+			var obs_x : int = get_viewport_rect().size.x + score + 100 + (i * 100)
 			#Note: 525 is hardcoded value for height
 			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 525
 			last_obs = obs
 			add_obs(obs, obs_x, obs_y)
 			#print position of the obstacles - added for debugging purposes
 			print(obs.position)
-	
-		
+
 func add_obs(obs, x, y):
 	obs.global_position = Vector2i(x, y)
 	obs.body_entered.connect(hit_obs)
 	add_child(obs)
 	obstacles.append(obs)
+
+#Randomize the appearing obstacles ~From ChatGPT
+#func generate_obstacle_group():
+	#var obstacle_count = randi() % 3 + 1 #Generate between 1 and 3 obstacles
+	#for i in range(obstacle_count):
+		#generate_obs()
 
 func remove_obs(obs): 
 	obs.queue_free()
@@ -143,6 +150,10 @@ func adjust_difficulty():
 	difficulty = score / SPEED_MODIFIER
 	if difficulty > MAX_DIFFICULTY:
 		difficulty = MAX_DIFFICULTY
+
+#update if window size changed  ~~ this is from ChatGPT!
+func _on_window_resized():
+	screen_size = get_window().size
 
 func game_over():
 	check_high_score()

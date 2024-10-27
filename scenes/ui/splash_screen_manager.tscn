@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/splash_screen_manager.gd" id="1_ouhw5"]
 [ext_resource type="Texture2D" uid="uid://vvmljqsjn58l" path="res://assets/logos/cog-dark.png" id="2_dbu85"]
 
-[node name="splash_screen_manager" type="Control"]
+[node name="splash_screen_manager" type="Control" node_paths=PackedStringArray("splash_screen_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ouhw5")
+splash_screen_container = NodePath("SplashScreenContainer")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,7 +34,11 @@ grow_vertical = 2
 [node name="Screen1" type="TextureRect" parent="SplashScreenContainer"]
 layout_mode = 2
 texture = ExtResource("1_7ga75")
+expand_mode = 3
+stretch_mode = 3
 
 [node name="Screen2" type="TextureRect" parent="SplashScreenContainer"]
 layout_mode = 2
 texture = ExtResource("2_dbu85")
+expand_mode = 3
+stretch_mode = 3
