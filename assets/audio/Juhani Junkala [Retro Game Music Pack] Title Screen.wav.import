@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdqm6agfcfjot"
+path="res://.godot/imported/Juhani Junkala [Retro Game Music Pack] Title Screen.wav-3a777ab7aef04a600afa1a27638bf265.sample"
+
+[deps]
+
+source_file="res://assets/audio/Juhani Junkala [Retro Game Music Pack] Title Screen.wav"
+dest_files=["res://.godot/imported/Juhani Junkala [Retro Game Music Pack] Title Screen.wav-3a777ab7aef04a600afa1a27638bf265.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,19 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://n10xs0io1gro"]
+[gd_scene load_steps=9 format=3 uid="uid://n10xs0io1gro"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_8mp70"]
 [ext_resource type="PackedScene" uid="uid://jx0sly0i0aih" path="res://scenes/bg.tscn" id="2_ha6vo"]
+[ext_resource type="PackedScene" uid="uid://dh4cs2gwf6cwp" path="res://scenes/bg_test.tscn" id="3_53b6w"]
 [ext_resource type="PackedScene" uid="uid://ptdpxajc2lr6" path="res://scenes/player.tscn" id="3_wbydl"]
 [ext_resource type="PackedScene" uid="uid://c2i3syjfpc5be" path="res://scenes/ground.tscn" id="4_y45jr"]
 [ext_resource type="PackedScene" uid="uid://cru4ab0cbse8x" path="res://scenes/hud.tscn" id="5_tvmax"]
 [ext_resource type="PackedScene" uid="uid://crd8kfjvmnjgs" path="res://scenes/ui/game_over.tscn" id="6_4opsj"]
+[ext_resource type="AudioStream" uid="uid://b0hf5pnqdhs8t" path="res://assets/audio/Juhani Junkala [Retro Game Music Pack] Level 1.wav" id="8_crq84"]
 
 [node name="level" type="Node2D"]
 script = ExtResource("1_8mp70")
 
 [node name="BG" parent="." instance=ExtResource("2_ha6vo")]
+visible = false
+
+[node name="BG2" parent="." instance=ExtResource("3_53b6w")]
 
 [node name="player" parent="." instance=ExtResource("3_wbydl")]
-z_index = -85
+z_index = 1
 position = Vector2(28, -102)
 
 [node name="ground" parent="." instance=ExtResource("4_y45jr")]
@@ -24,3 +29,7 @@ position = Vector2(28, -102)
 
 [node name="GameOver" parent="." instance=ExtResource("6_4opsj")]
 process_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_crq84")
+autoplay = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cf2hcurfi5g8j"]
 
-[ext_resource type="Texture2D" uid="uid://cmsglf4pyhe0v" path="res://assets/sprites/Cardboard_Box.png" id="1_n3wej"]
+[ext_resource type="Texture2D" uid="uid://cmsglf4pyhe0v" path="res://assets/sprites/obstacles/Cardboard_Box.png" id="1_n3wej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtwuo"]
 size = Vector2(73, 54.5)

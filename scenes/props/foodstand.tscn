@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2xqoaqjypr5r"]
 
-[ext_resource type="Texture2D" uid="uid://bngfth1o67o3k" path="res://assets/sprites/Food_Stand.png" id="1_j6co1"]
+[ext_resource type="Texture2D" uid="uid://bngfth1o67o3k" path="res://assets/sprites/obstacles/Food_Stand.png" id="1_j6co1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_625g0"]
 size = Vector2(83, 135)

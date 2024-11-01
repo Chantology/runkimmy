@@ -14,7 +14,7 @@ var obstacles : Array
 
 #game variables
 const PLAYER_START_POS := Vector2i(28, -102)
-const CAM_START_POS := Vector2i(576, -329)
+const CAM_START_POS := Vector2i(576, -329) #fullscreen camera y to -529 please
 var difficulty 
 const MAX_DIFFICULTY : int = 2
 var score : int
@@ -80,7 +80,6 @@ func _process(_delta):
 		$player.position.x += speed
 		$Camera2D.position.x += speed
 		
-		
 		#update score
 		score += speed
 		show_score()
@@ -100,7 +99,7 @@ func _process(_delta):
 
 func generate_obs():
 	#Generate ground obstacles -- randi_range was (300,500) before
-	if obstacles.is_empty() or last_obs.position.x < score + randi_range(5, 500):
+	if obstacles.is_empty() or last_obs.position.x < score + randi_range(10, 600):
 		var max_obs = difficulty + 1		
 		
 		for i in range(randi() % max_obs + 1):
@@ -111,8 +110,8 @@ func generate_obs():
 			var obs_scale = obs.get_node("Sprite2D").scale
 			#Obstacles Spawning from out of screen, ChatGPT suggest to using this instead of screen_size.x
 			var obs_x : int = get_viewport_rect().size.x + score + 100 + (i * 100)
-			#Note: 525 is hardcoded value for height
-			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 525
+			#Note: 960 is hardcoded value for height, was 525 before
+			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 960
 			last_obs = obs
 			add_obs(obs, obs_x, obs_y)
 			#print position of the obstacles - added for debugging purposes
@@ -150,6 +149,12 @@ func _on_window_resized():
 	screen_size = get_window().size
 	var screen_height = screen_size.y
 	$ground.position.y = screen_height - $ground.texture.get_size().y
+	#Part below is not working - this is shit code from ChatGPT
+	#if DisplayServer.window_get_mode() == DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN:
+		#$Camera2D.position = Vector2(576, -529)
+	#elif OS.window_maximized:
+		#$Camera2D.position = Vector2(576, -529)	
+		#$Camera2D.position = Vector2(576, -329)
 
 func game_over():
 	check_high_score()

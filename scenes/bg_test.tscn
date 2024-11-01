@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=4 uid="uid://dh4cs2gwf6cwp"]
+
+[ext_resource type="Texture2D" uid="uid://bi4tn83oc5x0u" path="res://assets/sprites/City_Sky_BG/1.png" id="1_qp340"]
+[ext_resource type="Texture2D" uid="uid://ch1khbwbjirvp" path="res://assets/sprites/Background_Layer_2.png" id="2_avjpq"]
+[ext_resource type="Texture2D" uid="uid://du50ldt4cnuq2" path="res://assets/sprites/City_Sky_BG/2.png" id="2_kuecv"]
+[ext_resource type="Texture2D" uid="uid://g6xs72cvvy2d" path="res://assets/sprites/City_Sky_BG/3.png" id="3_4c8t1"]
+[ext_resource type="Texture2D" uid="uid://ce7xp3fcgovf0" path="res://assets/sprites/Background_Layer_3.png" id="3_5dtq7"]
+[ext_resource type="Texture2D" uid="uid://brqguarylgnn" path="res://assets/sprites/City_Sky_BG/4.png" id="4_6bfun"]
+[ext_resource type="Texture2D" uid="uid://bldl7nskjmb43" path="res://assets/sprites/City_Sky_BG/7.png" id="5_cne6n"]
+[ext_resource type="Texture2D" uid="uid://cosh3aovro8m5" path="res://assets/sprites/City_Midground/CITY_MEGA.png" id="8_f65ww"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waoqn"]
+texture = ExtResource("8_f65ww")
+25:88/size_in_atlas = Vector2i(3, 1)
+25:88/0 = 0
+28:88/size_in_atlas = Vector2i(3, 1)
+28:88/0 = 0
+30:85/size_in_atlas = Vector2i(2, 3)
+30:85/0 = 0
+24:84/size_in_atlas = Vector2i(2, 2)
+24:84/0 = 0
+21:92/0 = 0
+22:91/size_in_atlas = Vector2i(2, 2)
+22:91/0 = 0
+13:92/size_in_atlas = Vector2i(4, 1)
+13:92/0 = 0
+6:92/size_in_atlas = Vector2i(4, 1)
+6:92/0 = 0
+30:91/size_in_atlas = Vector2i(2, 2)
+30:91/0 = 0
+32:92/0 = 0
+37:92/0 = 0
+38:92/0 = 0
+41:89/size_in_atlas = Vector2i(3, 1)
+41:89/0 = 0
+41:92/size_in_atlas = Vector2i(2, 1)
+41:92/0 = 0
+6:106/size_in_atlas = Vector2i(11, 9)
+6:106/0 = 0
+24:103/size_in_atlas = Vector2i(8, 12)
+24:103/0 = 0
+32:104/size_in_atlas = Vector2i(7, 11)
+32:104/0 = 0
+40:101/size_in_atlas = Vector2i(7, 14)
+40:101/0 = 0
+48:110/size_in_atlas = Vector2i(9, 5)
+48:110/0 = 0
+65:109/size_in_atlas = Vector2i(12, 6)
+65:109/0 = 0
+78:110/size_in_atlas = Vector2i(7, 5)
+78:110/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_he6f2"]
+sources/3 = SubResource("TileSetAtlasSource_waoqn")
+
+[node name="BG" type="Node2D"]
+metadata/_edit_vertical_guides_ = [3344.0]
+
+[node name="ParallaxSky Far Background" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 1)
+scroll_offset = Vector2(0, -4)
+repeat_size = Vector2(3456, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxSky Far Background"]
+position = Vector2(0, -1944.89)
+scale = Vector2(6, 6)
+texture = ExtResource("1_qp340")
+centered = false
+
+[node name="ParallaxLayer" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 1)
+scroll_offset = Vector2(0, -1800)
+repeat_size = Vector2(1800, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(0, 775)
+scale = Vector2(3, 3)
+texture = ExtResource("2_kuecv")
+centered = false
+
+[node name="ParallaxLayer4" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 1)
+scroll_offset = Vector2(0, -1800)
+repeat_size = Vector2(1500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(0, 830)
+scale = Vector2(3, 3)
+texture = ExtResource("3_4c8t1")
+centered = false
+
+[node name="ParallaxLayer3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(0, -1800)
+repeat_size = Vector2(1200, 0)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(0, 1148)
+scale = Vector2(2, 2)
+texture = ExtResource("4_6bfun")
+centered = false
+
+[node name="ParallaxLayer6" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, -1800)
+repeat_size = Vector2(2250, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
+scale = Vector2(4, 5.6)
+texture = ExtResource("5_cne6n")
+centered = false
+
+[node name="ParallaxLayer5" type="Parallax2D" parent="."]
+visible = false
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(0, -1800)
+repeat_size = Vector2(2250, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+visible = false
+texture = ExtResource("2_avjpq")
+centered = false
+
+[node name="ParallaxLayer2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(0, -1800)
+repeat_size = Vector2(4500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(5, 930)
+texture = ExtResource("3_5dtq7")
+centered = false
+
+[node name="ParallaxLayer7" type="Parallax2D" parent="."]
+visible = false
+scroll_offset = Vector2(0, -1800)
+repeat_size = Vector2(4500, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="ParallaxLayer7"]
+position = Vector2(-783, -3594)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAADAGoAAwAYAGcAAAAZAGsAAwAgAGgAAAAwAGkAAwAoAGUAAAA4AGkAAwAoAGUAAABAAGkAAwAoAGUAAACEAG0AAwBBAG0AAAC3AG0AAwBOAG4AAAA=")
+tile_set = SubResource("TileSet_he6f2")

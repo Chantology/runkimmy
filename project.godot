@@ -12,12 +12,18 @@ config_version=5
 
 config/name="Run Kimmy "
 config/description="This Game must be released before Kim's first game!"
-config/version="0.1.6.6"
+config/version="0.1.7.6"
 run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.0646965, 0.0646965, 0.0646965, 1)
 boot_splash/show_image=false
 config/icon="res://assets/logos/kimmy_icon_v001.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/aspect="ignore"
 
 [input]
 
@@ -34,3 +40,7 @@ ui_accept={
 [physics]
 
 2d/default_gravity=1470.0
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

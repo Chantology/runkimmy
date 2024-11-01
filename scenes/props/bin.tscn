@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dciltdii7gqw4"]
 
-[ext_resource type="Texture2D" uid="uid://bqj6pilvhek3c" path="res://assets/sprites/Bin_1.png" id="1_3j45q"]
+[ext_resource type="Texture2D" uid="uid://bqj6pilvhek3c" path="res://assets/sprites/obstacles/Bin_1.png" id="1_3j45q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lujpc"]
 size = Vector2(38.6364, 58.3333)
