@@ -33,3 +33,7 @@ process_mode = 2
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_crq84")
 autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

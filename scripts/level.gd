@@ -24,7 +24,7 @@ var speed : float
 const START_SPEED : float = 10.0
 const SPEED_MODIFIER : int = 5000
 #MAX_SPEED was 25 before
-const MAX_SPEED : int = 50
+const MAX_SPEED : int = 40
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -98,8 +98,8 @@ func _process(_delta):
 			$HUD.get_node("GameStartLabel").hide()
 
 func generate_obs():
-	#Generate ground obstacles -- randi_range was (300,500) before
-	if obstacles.is_empty() or last_obs.position.x < score + randi_range(10, 600):
+	#Generate ground obstacles -- randi_range was (300,500, then 10, 600) before
+	if obstacles.is_empty() or last_obs.position.x < score + randi_range(10, 1000):
 		var max_obs = difficulty + 1		
 		
 		for i in range(randi() % max_obs + 1):
@@ -108,7 +108,7 @@ func generate_obs():
 			var obs = obs_type.instantiate()
 			var obs_height = obs.get_node("Sprite2D").texture.get_height()
 			var obs_scale = obs.get_node("Sprite2D").scale
-			#Obstacles Spawning from out of screen, ChatGPT suggest to using this instead of screen_size.x
+			#Obstacles Spawning from out of screen used this instead of screen_size.x
 			var obs_x : int = get_viewport_rect().size.x + score + 100 + (i * 100)
 			#Note: 960 is hardcoded value for height, was 525 before
 			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 960
@@ -116,6 +116,10 @@ func generate_obs():
 			add_obs(obs, obs_x, obs_y)
 			#print position of the obstacles - added for debugging purposes
 			print(obs.position)
+			
+		# Set a new random interval for the timer and restart it --> NOT WORKING
+		$Timer.wait_time = randf_range(1.0, 5.0)
+		$Timer.start()
 
 func add_obs(obs, x, y):
 	obs.global_position = Vector2i(x, y)
@@ -144,17 +148,11 @@ func adjust_difficulty():
 	if difficulty > MAX_DIFFICULTY:
 		difficulty = MAX_DIFFICULTY
 
-#update if window size changed  ~~ this is from ChatGPT!
+#update if window size changed  ~~ this is from ChatGPT, might adjust later!
 func _on_window_resized():
 	screen_size = get_window().size
 	var screen_height = screen_size.y
-	$ground.position.y = screen_height - $ground.texture.get_size().y
-	#Part below is not working - this is shit code from ChatGPT
-	#if DisplayServer.window_get_mode() == DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN:
-		#$Camera2D.position = Vector2(576, -529)
-	#elif OS.window_maximized:
-		#$Camera2D.position = Vector2(576, -529)	
-		#$Camera2D.position = Vector2(576, -329)
+	$ground.position.y = screen_height - $ground.texture.get_size().y	
 
 func game_over():
 	check_high_score()
