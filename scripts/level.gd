@@ -118,8 +118,8 @@ func generate_obs():
 			print(obs.position)
 			
 		# Set a new random interval for the timer and restart it --> NOT WORKING
-		$Timer.wait_time = randf_range(1.0, 5.0)
-		$Timer.start()
+		#$Timer.wait_time = randf_range(1.0, 5.0)
+		#$Timer.start()
 
 func add_obs(obs, x, y):
 	obs.global_position = Vector2i(x, y)
@@ -159,3 +159,8 @@ func game_over():
 	get_tree().paused = true
 	game_running = false 
 	$GameOver.show()
+
+# tried to add a timer to have a break where no obstacled appear, not working :( 
+func _on_timer_timeout() -> void:
+	$Timer.wait_time = randf_range(1.0, 3.0)
+	$Timer.start()
