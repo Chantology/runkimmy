@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlddah4t5g58u"]
+[gd_scene load_steps=9 format=3 uid="uid://dlddah4t5g58u"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_0d50q"]
-[ext_resource type="Texture2D" uid="uid://cqtyhjy4vfxgd" path="res://assets/sprites/Background_Layer_1.png" id="2_r3rwq"]
+[ext_resource type="Texture2D" uid="uid://bgts13isc0jp8" path="res://assets/sprites/BG/1.png" id="2_vvd34"]
 [ext_resource type="Script" path="res://scripts/mainmenu_button.gd" id="3_8da4d"]
+[ext_resource type="Texture2D" uid="uid://cb70jlktyx7qg" path="res://assets/logos/runKimmyRun05.png" id="3_546k1"]
 [ext_resource type="AudioStream" uid="uid://cdqm6agfcfjot" path="res://assets/audio/Juhani Junkala [Retro Game Music Pack] Title Screen.wav" id="4_anijf"]
 
 [sub_resource type="SystemFont" id="SystemFont_ggwnf"]
@@ -41,19 +42,24 @@ offset_top = -923.0
 offset_bottom = -649.4
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_r3rwq")
+texture = ExtResource("2_vvd34")
 expand_mode = 5
 stretch_mode = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(923, -624)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_546k1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -321.0
-offset_top = -786.2
-offset_right = 321.0
-offset_bottom = -453.2
+offset_left = -332.0
+offset_top = -418.0
+offset_right = 310.0
+offset_bottom = -85.0
 grow_horizontal = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
@@ -62,11 +68,12 @@ theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "RUN KIMMY!"
 label_settings = SubResource("LabelSettings_42aew")
@@ -79,6 +86,14 @@ theme_override_fonts/font = SubResource("SystemFont_jg1l5")
 theme_override_font_sizes/font_size = 32
 text = "PLAY GAME"
 script = ExtResource("3_8da4d")
+
+[node name="Options Button" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("SystemFont_jg1l5")
+theme_override_font_sizes/font_size = 32
+text = "OPTIONS"
 
 [node name="Quit Button" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(256, 0)
@@ -93,4 +108,5 @@ stream = ExtResource("4_anijf")
 autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options Button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
