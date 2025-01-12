@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbqhvn0tgmsnf"]
+[gd_scene load_steps=5 format=3 uid="uid://dbqhvn0tgmsnf"]
 
 [ext_resource type="Texture2D" uid="uid://bv8ioauwdwjgy" path="res://assets/logos/chantology_logo_v001.png" id="1_7ga75"]
 [ext_resource type="Script" path="res://scripts/splash_screen_manager.gd" id="1_ouhw5"]
 [ext_resource type="Texture2D" uid="uid://vvmljqsjn58l" path="res://assets/logos/cog-dark.png" id="2_dbu85"]
+
+[sub_resource type="PackedScene" id="PackedScene_x7mkl"]
 
 [node name="splash_screen_manager" type="Control" node_paths=PackedStringArray("splash_screen_container")]
 layout_mode = 3
@@ -12,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ouhw5")
+load_scene = SubResource("PackedScene_x7mkl")
 splash_screen_container = NodePath("SplashScreenContainer")
 
 [node name="ColorRect" type="ColorRect" parent="."]
