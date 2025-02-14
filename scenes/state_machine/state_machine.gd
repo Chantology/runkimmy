@@ -5,7 +5,6 @@ var kimmy: Kimmy
 var current_state: State
 
 var run_state: RunState
-var idle_state: IdleState
 var jump_state: JumpState
 var die_state: DieState
 
@@ -15,8 +14,6 @@ func initialize(p_kimmy: Kimmy) -> void:
 	
 	run_state = load("res://scenes/state_machine/run_state.tscn").instantiate()
 	add_child(run_state)
-	idle_state = load("res://scenes/state_machine/idle_state.tscn").instantiate()
-	add_child(idle_state)
 	jump_state = load("res://scenes/state_machine/jump_state.tscn").instantiate()
 	add_child(jump_state)
 	die_state = load("res://scenes/state_machine/die_state.tscn").instantiate()
@@ -29,7 +26,7 @@ func initialize(p_kimmy: Kimmy) -> void:
 	die_state.kimmy = kimmy
 	die_state.state_machine = self
 	
-	current_state = idle_state
+	current_state = run_state
 	current_state.enter()
 
 
