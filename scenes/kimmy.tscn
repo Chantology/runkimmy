@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://730vqmnro7s1"]
+[gd_scene load_steps=9 format=3 uid="uid://730vqmnro7s1"]
 
 [ext_resource type="Script" path="res://scenes/kimmy.gd" id="1_0r5yn"]
 [ext_resource type="Texture2D" uid="uid://c3kxjvmu00nml" path="res://assets/sprites/kimmy_small.png" id="2_vmbha"]
+[ext_resource type="PackedScene" uid="uid://dcto2ach5strq" path="res://scenes/state_machine/state_machine.tscn" id="3_cgueq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t2h8e"]
 height = 42.0
@@ -70,8 +71,10 @@ position = Vector2(0, -21)
 shape = SubResource("CapsuleShape2D_t2h8e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
 texture = ExtResource("2_vmbha")
-offset = Vector2(0, -32)
+centered = false
+offset = Vector2(-16, -48)
 hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -79,3 +82,5 @@ libraries = {
 "": SubResource("AnimationLibrary_3nnas")
 }
 autoplay = "run"
+
+[node name="StateMachine" parent="." instance=ExtResource("3_cgueq")]

@@ -1,12 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1e26w40dkspv"]
+[gd_scene load_steps=2 format=3 uid="uid://c1e26w40dkspv"]
 
 [ext_resource type="Script" path="res://scenes/chunk_manager.gd" id="1_cnu1q"]
-[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="2_0dr6y"]
 
 [node name="ChunkManager" type="Node2D"]
 script = ExtResource("1_cnu1q")
-
-[node name="Chunk" parent="." instance=ExtResource("2_0dr6y")]
-
-[node name="Chunk2" parent="." instance=ExtResource("2_0dr6y")]
-position = Vector2(640, 0)

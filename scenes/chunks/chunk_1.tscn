@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqpdstokrtjhm"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_kaui6"]
+[ext_resource type="Texture2D" uid="uid://dottblsowmku0" path="res://assets/sprites/platform.png" id="2_e3qtl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ukaj"]
+size = Vector2(576, 39.5)
+
+[node name="Chunk_1" instance=ExtResource("1_kaui6")]
+
+[node name="Platform" type="StaticBody2D" parent="." index="3"]
+position = Vector2(320, 220)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" index="0"]
+position = Vector2(0, 1.75)
+shape = SubResource("RectangleShape2D_6ukaj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform" index="1"]
+texture_repeat = 2
+texture = ExtResource("2_e3qtl")
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 43)

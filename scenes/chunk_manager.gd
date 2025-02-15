@@ -1,55 +1,68 @@
-extends Node2D
-class_name ChunkManager
+class_name ChunkManager extends Node2D
+
+var game: Game
 
 @export var chunk_scenes: Array[PackedScene] = [
-	preload("res://scenes/chunks/chunk_0.tscn")
+	preload("res://scenes/chunks/chunk_0.tscn"),
+	preload("res://scenes/chunks/chunk_1.tscn")
 ]
 
-@export var move_speed: float = 3.0
 @export var active_chunk_count: int = 3
-
 var active_chunks: Array[Node2D] = []
 
-func _ready() -> void:
-	# Initialize chunks
+var chunk_speed_map = {
+	2: [0],               # Only chunk_0 when speed is 2
+	2.5: [0, 1],           # chunk_0 and chunk_1 when speed is 10
+}
+
+
+func initialize(p_game: Game) -> void:
+	game = p_game
 	for i in range(active_chunk_count):
-		spawn_chunk(Vector2(i * 640, 0))  # Adjust 800 to your chunk width
+		spawn_chunk(Vector2(i * 640, 0))  # Adjust 640 to your chunk width
+
 
 func _physics_process(_delta: float) -> void:
 	for chunk in active_chunks:
-		chunk.position.x -= move_speed
+		chunk.position.x -= game.speed
 		
-		# Recycle chunk if out of screen
+		# Destroy chunk if out of screen
 		if chunk.position.x < -chunk.get_width():
-			recycle_chunk(chunk)
+			chunk.queue_free()
+			active_chunks.erase(chunk)
+		
+	# Check if we need a new chunk
+	if active_chunks.size() < active_chunk_count:
+		var last_chunk = active_chunks.back()
+		var spawn_pos = last_chunk.position.x + last_chunk.get_width()
+		spawn_chunk(Vector2(spawn_pos, 0))
+
 
 func spawn_chunk(position: Vector2) -> void:
-	# Get a random chunk scene
-	var chunk_scene = chunk_scenes[randi() % chunk_scenes.size()]
-	var new_chunk = chunk_scene.instantiate() as Node2D
+	# Choose chunks based on current speed
+	var selected_chunks: Array = get_chunks_for_speed(game.speed)
+	var chunk_scene: PackedScene = chunk_scenes[selected_chunks[randi() % selected_chunks.size()]]
+	var new_chunk: Chunk = chunk_scene.instantiate()
 	new_chunk.position = position
 	
-	# Add to scene and active list
 	add_child(new_chunk)
 	active_chunks.append(new_chunk)
 	
 	# Connect end trigger
-	var end_trigger = new_chunk.get_node("ChunkEnd") as Area2D
-	end_trigger.body_entered.connect(on_chunk_end_trigger)
+	new_chunk.end_trigger.body_entered.connect(on_chunk_end_trigger)
 
-func recycle_chunk(chunk: Node2D) -> void:
-	# Move chunk to the end of the last active chunk
-	var last_chunk = active_chunks.back()
-	var new_x = last_chunk.position.x + last_chunk.get_width()
-	chunk.position.x = new_x
-	
-	# Rearrange the list
-	active_chunks.erase(chunk)
-	active_chunks.append(chunk)
+
+func get_chunks_for_speed(speed: float) -> Array:
+	# Find the closest speed range without exceeding the current speed
+	var selected_chunks = []
+	for key in chunk_speed_map.keys():
+		if speed >= key:
+			selected_chunks = chunk_speed_map[key]
+	return selected_chunks
+
 
 func on_chunk_end_trigger(body: Node2D) -> void:
 	if body.name == "Player":
-		# Spawn new chunk at the end of the current one
 		var last_chunk = active_chunks.back()
 		var spawn_pos = last_chunk.position.x + last_chunk.get_width()
 		spawn_chunk(Vector2(spawn_pos, 0))

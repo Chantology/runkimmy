@@ -4,3 +4,7 @@
 
 [node name="StateMachine" type="Node"]
 script = ExtResource("1_naoy8")
+
+[node name="StateDebugLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
