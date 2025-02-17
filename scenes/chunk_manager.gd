@@ -3,8 +3,8 @@ class_name ChunkManager extends Node2D
 var game: Game
 
 @export var chunk_scenes: Array[PackedScene] = [
-	preload("res://scenes/chunks/chunk_0.tscn"),
-	preload("res://scenes/chunks/chunk_1.tscn")
+	preload("res://scenes/chunks/chunk_1.tscn"),
+	preload("res://scenes/chunks/chunk_2.tscn")
 ]
 
 @export var active_chunk_count: int = 3

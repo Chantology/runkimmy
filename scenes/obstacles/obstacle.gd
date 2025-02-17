@@ -1,0 +1,1 @@
+class_name Obstacle extends RigidBody2D

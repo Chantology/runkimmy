@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://br5djhnts3fpk"]
+
+[ext_resource type="Texture2D" uid="uid://i5ehwyev2mbi" path="res://assets/sprites/obstacles/Barrel.png" id="1_nhf3a"]
+[ext_resource type="Script" path="res://scenes/obstacles/obstacle.gd" id="1_ya08y"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b4q2o"]
+friction = 0.0
+
+[node name="Obstacle" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_b4q2o")
+freeze = true
+script = ExtResource("1_ya08y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -57)
+texture = ExtResource("1_nhf3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

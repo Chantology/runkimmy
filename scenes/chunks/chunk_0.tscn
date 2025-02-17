@@ -33,3 +33,5 @@ position = Vector2(640, 180)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EndPosition"]
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_mfouf")
+
+[node name="Obstacles" type="Node2D" parent="."]

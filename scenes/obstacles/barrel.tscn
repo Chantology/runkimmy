@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://8qdbtqvsfe1m"]
+
+[ext_resource type="PackedScene" uid="uid://br5djhnts3fpk" path="res://scenes/obstacles/obstacle.tscn" id="1_xubly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aow4e"]
+size = Vector2(47, 66)
+
+[node name="Barrel" instance=ExtResource("1_xubly")]
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5, -33)
+shape = SubResource("RectangleShape2D_aow4e")
