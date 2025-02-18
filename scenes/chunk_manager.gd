@@ -12,7 +12,7 @@ var active_chunks: Array[Node2D] = []
 
 var chunk_speed_map = {
 	2: [0],               # Only chunk_0 when speed is 2
-	2.1: [0, 1],           # chunk_0 and chunk_1 when speed is 10
+	2.05: [1],           # chunk_0 and chunk_1 when speed is 10
 }
 
 
@@ -22,7 +22,7 @@ func initialize(p_game: Game) -> void:
 		spawn_chunk(Vector2(i * 640, 0))  # Adjust 640 to your chunk width
 
 
-func _physics_process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	if game.over:
 		return
 	

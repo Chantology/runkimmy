@@ -30,11 +30,11 @@ func _ready() -> void:
 	setup_menu()
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if over:
 		return
 	
-	parallax_background.scroll_offset.x -= speed
+	parallax_background.scroll_base_offset.x -= speed
 	
 	if speed < MAX_SPEED and started: # only increase speed if the game already started
 		speed = min(MAX_SPEED, speed + ACCELERATION * delta)
@@ -55,6 +55,7 @@ func on_game_over() -> void:
 func setup_menu() -> void:
 	Audio.play_music("menu")
 	ui_animation_player.play("start_menu_in")
+	Audio.play_sound("woosh")
 	
 	if Audio.is_music_muted:
 		music_button.set_pressed_no_signal(true)
@@ -75,4 +76,5 @@ func on_start_button_pressed() -> void:
 	if not started and not over:
 		started = true
 		ui_animation_player.play("start_menu_out")
+		Audio.play_sound("woosh")
 		Audio.play_music("game")

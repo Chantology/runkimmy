@@ -6,3 +6,4 @@
 script = ExtResource("1_jfnpd")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -7.0

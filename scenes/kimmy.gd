@@ -18,14 +18,15 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_state(delta)
+	
+	velocity.x = 0
+	
 	move_and_slide()
 
 
 func _on_collision_area_body_entered(body: Node2D) -> void:
 	if dead:
 		return
-	
-	velocity.x = 0
 	
 	if body is Obstacle:
 		print("Collided with obstacle!")

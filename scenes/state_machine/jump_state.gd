@@ -11,6 +11,8 @@ var jump_force: float = JUMP_FORCE
 func enter() -> void:
 	kimmy.play_animation("jump")
 	kimmy.velocity.y = jump_force
+	
+	Audio.play_sound("jump")
 
 
 func exit() -> void:

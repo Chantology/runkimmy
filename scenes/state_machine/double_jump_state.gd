@@ -13,6 +13,8 @@ func enter() -> void:
 	kimmy.play_animation("jump")
 	kimmy.velocity.y = double_jump_force
 	
+	Audio.play_sound("jump")
+	
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(kimmy.sprite, "rotation_degrees", 360, spin_duration)
 
