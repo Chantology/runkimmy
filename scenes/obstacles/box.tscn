@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbo6nvgi5g5lv"]
+
+[ext_resource type="PackedScene" uid="uid://br5djhnts3fpk" path="res://scenes/obstacles/obstacle.tscn" id="1_qwgh6"]
+[ext_resource type="Texture2D" uid="uid://cscmrvvf8ws2a" path="res://assets/sprites/obstacles/Cardboard_Box.png" id="2_ol4pi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7j2r"]
+size = Vector2(49, 37)
+
+[node name="Box" instance=ExtResource("1_qwgh6")]
+mass = 0.5
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -46)
+texture = ExtResource("2_ol4pi")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(4.5, -19.5)
+shape = SubResource("RectangleShape2D_d7j2r")

@@ -25,6 +25,8 @@ func _on_collision_area_body_entered(body: Node2D) -> void:
 	if dead:
 		return
 	
+	velocity.x = 0
+	
 	if body is Obstacle:
 		print("Collided with obstacle!")
 		handle_obstacle_collision(body)

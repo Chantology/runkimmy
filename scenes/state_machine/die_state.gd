@@ -4,7 +4,7 @@ var base_gravity: float = 245.0
 
 func enter() -> void:
 	kimmy.play_animation("jump")
-	kimmy.velocity.y = 0
+	kimmy.velocity.y = 10
 	
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(kimmy.sprite, "rotation_degrees", 90, 0.25)

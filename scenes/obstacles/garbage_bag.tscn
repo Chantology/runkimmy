@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5kql2so356xb"]
+
+[ext_resource type="PackedScene" uid="uid://br5djhnts3fpk" path="res://scenes/obstacles/obstacle.tscn" id="1_nxq6i"]
+[ext_resource type="Texture2D" uid="uid://cs6rqfwnv7kfd" path="res://assets/sprites/obstacles/Garbage_Bag.png" id="2_3lphu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sxf7q"]
+radius = 14.1421
+
+[node name="GarbageBag" instance=ExtResource("1_nxq6i")]
+mass = 0.5
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(-5, -20)
+texture = ExtResource("2_3lphu")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_sxf7q")

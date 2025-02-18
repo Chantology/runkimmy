@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs8kbv8sxnf48"]
+
+[ext_resource type="PackedScene" uid="uid://br5djhnts3fpk" path="res://scenes/obstacles/obstacle.tscn" id="1_y0odf"]
+[ext_resource type="Texture2D" uid="uid://25287cl0kbla" path="res://assets/sprites/obstacles/Containers_3.png" id="2_rliq1"]
+
+[node name="Containers" instance=ExtResource("1_y0odf")]
+mass = 10.0
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -54)
+texture = ExtResource("2_rliq1")
+
+[node name="CollisionShape2D" parent="." index="1"]
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+position = Vector2(0, -54)
+polygon = PackedVector2Array(-29, -16, -29, -14, -33.7, -10, -35.2, -10, -40.2, 0, -42.5, 0, -39.6, 13, -40, 46, -40, 51, 45, 51, 46, 5, 47.9, 5, 41, -13.5, 41, -16)

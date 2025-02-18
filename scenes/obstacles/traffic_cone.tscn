@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnrvnsta4vfp3"]
+
+[ext_resource type="PackedScene" uid="uid://br5djhnts3fpk" path="res://scenes/obstacles/obstacle.tscn" id="1_ykbxj"]
+[ext_resource type="Texture2D" uid="uid://bixmcdmnbtikw" path="res://assets/sprites/obstacles/Traffic_Cone.png" id="2_hf7mk"]
+
+[node name="TrafficCone" instance=ExtResource("1_ykbxj")]
+mass = 0.5
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hf7mk")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -15)
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+position = Vector2(0, -57)
+polygon = PackedVector2Array(1.4, 29.8, -2, 30.3, -2, 37, -6.5, 56, 9.7, 56)
