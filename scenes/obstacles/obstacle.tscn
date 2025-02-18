@@ -4,9 +4,10 @@
 [ext_resource type="Script" path="res://scenes/obstacles/obstacle.gd" id="1_ya08y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b4q2o"]
-friction = 0.0
+friction = 0.5
 
 [node name="Obstacle" type="RigidBody2D"]
+z_index = 1
 physics_material_override = SubResource("PhysicsMaterial_b4q2o")
 freeze = true
 script = ExtResource("1_ya08y")

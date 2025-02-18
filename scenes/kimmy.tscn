@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://730vqmnro7s1"]
+[gd_scene load_steps=10 format=3 uid="uid://730vqmnro7s1"]
 
 [ext_resource type="Script" path="res://scenes/kimmy.gd" id="1_0r5yn"]
 [ext_resource type="Texture2D" uid="uid://c3kxjvmu00nml" path="res://assets/sprites/kimmy_small.png" id="2_vmbha"]
@@ -63,7 +63,11 @@ _data = {
 "run": SubResource("Animation_k5h4m")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_765yf"]
+radius = 4.0
+
 [node name="Kimmy" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_0r5yn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -84,3 +88,9 @@ libraries = {
 autoplay = "run"
 
 [node name="StateMachine" parent="." instance=ExtResource("3_cgueq")]
+
+[node name="CollisionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+position = Vector2(7, -16)
+shape = SubResource("CircleShape2D_765yf")

@@ -15,13 +15,19 @@ var started: bool = false
 var over: bool = false
 
 @onready var chunk_manager: ChunkManager = $ChunkManager
+@onready var kimmy: Kimmy = $Kimmy
 
 
 func _ready() -> void:
 	chunk_manager.initialize(self)
+	kimmy.game = self
+	kimmy.died.connect(on_game_over)
 
 
 func _physics_process(delta: float) -> void:
+	if over:
+		return
+	
 	parallax_background.scroll_offset.x -= speed
 	
 	if speed < MAX_SPEED:
@@ -34,3 +40,7 @@ func restart_game() -> void:
 	speed = INITIAL_SPEED
 	distance_score = 0.0
 	additional_score = 0.0
+
+
+func on_game_over() -> void:
+	over = true

@@ -12,7 +12,7 @@ var active_chunks: Array[Node2D] = []
 
 var chunk_speed_map = {
 	2: [0],               # Only chunk_0 when speed is 2
-	2.5: [0, 1],           # chunk_0 and chunk_1 when speed is 10
+	2.1: [0, 1],           # chunk_0 and chunk_1 when speed is 10
 }
 
 
@@ -23,6 +23,9 @@ func initialize(p_game: Game) -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if game.over:
+		return
+	
 	for chunk in active_chunks:
 		chunk.position.x -= game.speed
 		

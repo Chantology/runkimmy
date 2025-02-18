@@ -23,4 +23,5 @@ position = Vector2(0, 1.75)
 shape = SubResource("RectangleShape2D_6ukaj")
 
 [node name="Barrel" parent="Obstacles" index="0" instance=ExtResource("3_6bovf")]
+z_index = 0
 position = Vector2(322, 201)
