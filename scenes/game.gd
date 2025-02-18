@@ -55,14 +55,20 @@ func on_game_over() -> void:
 func setup_menu() -> void:
 	Audio.play_music("menu")
 	ui_animation_player.play("start_menu_in")
+	
+	if Audio.is_music_muted:
+		music_button.set_pressed_no_signal(true)
+	
+	if Audio.is_sound_muted:
+		music_button.set_pressed_no_signal(true)
 
 
-func on_music_button_toggled(toggled_on: bool) -> void:
-	print(toggled_on)
+func on_music_button_toggled(_toggled_on: bool) -> void:
+	Audio.toggle_music_mute()
 
 
-func on_sound_button_toggled(toggled_on: bool) -> void:
-	print(toggled_on)
+func on_sound_button_toggled(_toggled_on: bool) -> void:
+	Audio.toggle_sound_mute()
 
 
 func on_start_button_pressed() -> void:

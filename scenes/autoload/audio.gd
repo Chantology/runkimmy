@@ -1,20 +1,15 @@
 extends Node
-
 """
 How it works:
-First we (automatically) load all the sounds placed inside res://assets/audio/sounds/   and	place them inside the sounds_dictionary, 
+First we (automatically) load all the sounds placed inside res://assets/audio/sounds/ and place them inside the sounds_dictionary, 
 using the sound name as the dictionary key.
-
 Then, from anywhere in the game, we can call Audio.play_sound(sound_name) and it
 will play :)
 """
 
-
 var sound_folder_path: String = "res://assets/audio/sounds/"
 var sounds_dictionary: Dictionary = {}
-
 var supported_audio_files: Array = [".wav", ".ogg", ".mp3"]
-
 var music_tracks: Dictionary = {
 	"menu": load("res://assets/audio/music/Juhani Junkala [Retro Game Music Pack] Title Screen.mp3"),
 	"game": load("res://assets/audio/music/Juhani Junkala [Retro Game Music Pack] Level 1.mp3")
@@ -22,12 +17,19 @@ var music_tracks: Dictionary = {
 
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 
+var is_sound_muted: bool = false
+var is_music_muted: bool = false
+
 
 func _ready() -> void:
+	load_audio_settings()
 	load_sound_paths_dictionary()
 
 
 func play_sound(sound_name: String, pitch_scale: float = -1) -> void:
+	if is_sound_muted:  # Check if sounds are muted
+		return
+	
 	if !sounds_dictionary.has(sound_name):
 		print("Sound not present in sounds dictionary: " + sound_name)
 		return
@@ -85,4 +87,36 @@ func load_sound_paths_dictionary() -> void:
 
 func play_music(track: String) -> void:
 	music_player.stream = music_tracks[track]
-	music_player.play()
+	if is_music_muted:
+		music_player.stop()
+	else:
+		music_player.play()
+
+
+func toggle_sound_mute() -> void:
+	is_sound_muted = !is_sound_muted
+	save_audio_settings()
+
+
+func toggle_music_mute() -> void:
+	is_music_muted = !is_music_muted
+	if is_music_muted:
+		music_player.stop()
+	else:
+		music_player.play()
+	save_audio_settings()
+
+
+func save_audio_settings() -> void:
+	var config = ConfigFile.new()
+	config.set_value("audio", "is_sound_muted", is_sound_muted)
+	config.set_value("audio", "is_music_muted", is_music_muted)
+	config.save("user://audio_settings.cfg")
+
+
+func load_audio_settings() -> void:
+	var config = ConfigFile.new()
+	var load_error = config.load("user://audio_settings.cfg")
+	if load_error == OK:
+		is_sound_muted = config.get_value("audio", "is_sound_muted", false)
+		is_music_muted = config.get_value("audio", "is_music_muted", false)

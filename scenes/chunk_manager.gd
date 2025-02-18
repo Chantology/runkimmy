@@ -41,12 +41,12 @@ func _physics_process(_delta: float) -> void:
 		spawn_chunk(Vector2(spawn_pos, 0))
 
 
-func spawn_chunk(position: Vector2) -> void:
+func spawn_chunk(p_position: Vector2) -> void:
 	# Choose chunks based on current speed
 	var selected_chunks: Array = get_chunks_for_speed(game.speed)
 	var chunk_scene: PackedScene = chunk_scenes[selected_chunks[randi() % selected_chunks.size()]]
 	var new_chunk: Chunk = chunk_scene.instantiate()
-	new_chunk.position = position
+	new_chunk.position = p_position
 	
 	add_child(new_chunk)
 	active_chunks.append(new_chunk)
