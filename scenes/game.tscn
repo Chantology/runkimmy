@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbrv6x5kq64d7"]
+[gd_scene load_steps=20 format=3 uid="uid://dbrv6x5kq64d7"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jc2bs"]
 [ext_resource type="Texture2D" uid="uid://c7xit64qqm4to" path="res://assets/sprites/background/parallax/1.png" id="2_2wfko"]
@@ -8,6 +8,180 @@
 [ext_resource type="Texture2D" uid="uid://dnnbroqsnusbo" path="res://assets/sprites/background/parallax/4.png" id="5_3ay26"]
 [ext_resource type="Texture2D" uid="uid://lc2kr85n1wjp" path="res://assets/sprites/background/parallax/5.png" id="6_gyvrk"]
 [ext_resource type="PackedScene" uid="uid://c1e26w40dkspv" path="res://scenes/chunk_manager.tscn" id="8_8k581"]
+[ext_resource type="Texture2D" uid="uid://d1ymw1akbpval" path="res://assets/sprites/user_interface/musicOn.png" id="9_mtb0t"]
+[ext_resource type="Texture2D" uid="uid://rb7ywnj4wwam" path="res://assets/logos/runKimmyRun05.png" id="9_wal7p"]
+[ext_resource type="Texture2D" uid="uid://dcn3tby675pk2" path="res://assets/sprites/user_interface/musicOff.png" id="10_eacjy"]
+[ext_resource type="Texture2D" uid="uid://byqtv67s73w6o" path="res://assets/sprites/user_interface/audioOn.png" id="11_tp10a"]
+[ext_resource type="Texture2D" uid="uid://dfk2xwh3knofo" path="res://assets/sprites/user_interface/audioOff.png" id="12_b2kk0"]
+[ext_resource type="FontFile" uid="uid://b8jp6aj0l7sm7" path="res://assets/fonts/Secca W03 Extra Bold.ttf" id="14_7wain"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cag3k"]
+font = ExtResource("14_7wain")
+font_size = 24
+outline_size = 4
+outline_color = Color(0.341176, 0.588235, 0.513726, 1)
+shadow_color = Color(0.341176, 0.588235, 0.513726, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_w28t0"]
+resource_name = "start_menu_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameTitle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -200), Vector2(0, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MusicButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(509, 468), Vector2(509, 300)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(573, 468), Vector2(573, 300)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(182.5, -37), Vector2(182.5, 195)]
+}
+
+[sub_resource type="Animation" id="Animation_cpl6g"]
+resource_name = "start_menu_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameTitle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 32), Vector2(0, -200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%MusicButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(509, 300), Vector2(509, 468)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%SoundButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(573, 300), Vector2(573, 468)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(182.5, 195), Vector2(182.5, -37)]
+}
+
+[sub_resource type="Animation" id="Animation_3p52o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameTitle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%MusicButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(509, 300)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%SoundButton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(573, 300)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(182.5, 195)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxeyg"]
+_data = {
+"RESET": SubResource("Animation_3p52o"),
+"start_menu_in": SubResource("Animation_w28t0"),
+"start_menu_out": SubResource("Animation_cpl6g")
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jc2bs")
@@ -99,3 +273,110 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="StartMenu" type="Control" parent="CanvasLayer/UserInterface"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameTitle" type="TextureRect" parent="CanvasLayer/UserInterface/StartMenu"]
+texture_filter = 2
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 0
+offset_top = 32.0
+offset_right = 640.0
+offset_bottom = 392.0
+mouse_filter = 2
+texture = ExtResource("9_wal7p")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StartButton" type="Button" parent="CanvasLayer/UserInterface/StartMenu"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicButton" type="TextureButton" parent="CanvasLayer/UserInterface/StartMenu"]
+unique_name_in_owner = true
+self_modulate = Color(0.537255, 0.890196, 0.74902, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -60.0
+offset_right = -81.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(32, 32)
+toggle_mode = true
+texture_normal = ExtResource("9_mtb0t")
+texture_pressed = ExtResource("10_eacjy")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SoundButton" type="TextureButton" parent="CanvasLayer/UserInterface/StartMenu"]
+unique_name_in_owner = true
+self_modulate = Color(0.537255, 0.890196, 0.74902, 1)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -67.0
+offset_top = -60.0
+offset_right = -17.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(32, 32)
+toggle_mode = true
+texture_normal = ExtResource("11_tp10a")
+texture_pressed = ExtResource("12_b2kk0")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/UserInterface/StartMenu"]
+modulate = Color(0.537255, 0.890196, 0.74902, 1)
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.5
+offset_top = 15.0
+offset_right = 137.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "press anywhere to start"
+label_settings = SubResource("LabelSettings_cag3k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UIAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UserInterface"]
+unique_name_in_owner = true
+root_node = NodePath("../StartMenu")
+libraries = {
+"": SubResource("AnimationLibrary_hxeyg")
+}
+
+[connection signal="pressed" from="CanvasLayer/UserInterface/StartMenu/StartButton" to="." method="on_start_button_pressed"]
+[connection signal="toggled" from="CanvasLayer/UserInterface/StartMenu/MusicButton" to="." method="on_music_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/UserInterface/StartMenu/SoundButton" to="." method="on_sound_button_toggled"]

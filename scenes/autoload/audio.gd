@@ -4,7 +4,7 @@ extends Node
 How it works:
 First we (automatically) load all the sounds placed inside res://assets/audio/sounds/   and	place them inside the sounds_dictionary, 
 using the sound name as the dictionary key.
-	
+
 Then, from anywhere in the game, we can call Audio.play_sound(sound_name) and it
 will play :)
 """
@@ -14,6 +14,13 @@ var sound_folder_path: String = "res://assets/audio/sounds/"
 var sounds_dictionary: Dictionary = {}
 
 var supported_audio_files: Array = [".wav", ".ogg", ".mp3"]
+
+var music_tracks: Dictionary = {
+	"menu": load("res://assets/audio/music/Juhani Junkala [Retro Game Music Pack] Title Screen.mp3"),
+	"game": load("res://assets/audio/music/Juhani Junkala [Retro Game Music Pack] Level 1.mp3")
+}
+
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 
 
 func _ready() -> void:
@@ -74,3 +81,8 @@ func load_sound_paths_dictionary() -> void:
 			file_name = directory.get_next()
 	else:
 		print("An error occurred when trying to access the sounds path: " + sound_folder_path)
+
+
+func play_music(track: String) -> void:
+	music_player.stream = music_tracks[track]
+	music_player.play()
