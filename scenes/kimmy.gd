@@ -28,11 +28,15 @@ func _on_collision_area_body_entered(body: Node2D) -> void:
 	if dead:
 		return
 	
+	if body == self:
+		return
+	
 	if body is Obstacle:
 		print("Collided with obstacle!")
 		handle_obstacle_collision(body)
 	else: # I collided with a platform!
 		if not is_on_floor():
+			print("not on floor")
 			die()
 
 
@@ -54,10 +58,12 @@ func handle_obstacle_collision(obstacle: Obstacle) -> void:
 	obstacle.apply_torque_impulse(randf_range(-100.0, 100.0))      # Apply rotation
 	
 	obstacle_hit.emit(obstacle)
+	print("obstacle coll")
 	die()
 
 
 func die() -> void:
+	print("died?")
 	if not dead:
 		dead = true
 		state_machine.change_state(state_machine.die_state)

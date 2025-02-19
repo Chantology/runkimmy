@@ -18,6 +18,7 @@ config/icon="res://assets/logos/icon.png"
 [autoload]
 
 Audio="*res://scenes/autoload/audio.tscn"
+PickupManager="*res://scenes/autoload/pickup_manager.tscn"
 
 [display]
 
@@ -39,6 +40,10 @@ jump={
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
+
+[physics]
+
+2d/run_on_separate_thread=true
 
 [rendering]
 

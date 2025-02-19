@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwtj4xqroue43"]
+[gd_scene load_steps=5 format=3 uid="uid://bwtj4xqroue43"]
 
 [ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_6dnep"]
 [ext_resource type="Texture2D" uid="uid://dottblsowmku0" path="res://assets/sprites/platform.png" id="2_ogmib"]
-[ext_resource type="PackedScene" uid="uid://cnrvnsta4vfp3" path="res://scenes/obstacles/traffic_cone.tscn" id="3_yhvl6"]
-[ext_resource type="PackedScene" uid="uid://bs8kbv8sxnf48" path="res://scenes/obstacles/containers.tscn" id="4_y17uj"]
+[ext_resource type="PackedScene" uid="uid://844uqljektgl" path="res://scenes/obstacles/crate.tscn" id="3_m2241"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ukaj"]
 size = Vector2(576, 39.5)
@@ -23,8 +22,5 @@ region_rect = Rect2(0, 0, 576, 43)
 position = Vector2(0, 1.75)
 shape = SubResource("RectangleShape2D_6ukaj")
 
-[node name="TrafficCone" parent="Obstacles" index="0" instance=ExtResource("3_yhvl6")]
-position = Vector2(149, 202)
-
-[node name="Containers" parent="Obstacles" index="1" instance=ExtResource("4_y17uj")]
-position = Vector2(504, 202)
+[node name="Crate" parent="Obstacles" index="0" instance=ExtResource("3_m2241")]
+position = Vector2(204, 202)

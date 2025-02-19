@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn88fhbuy7fed"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_5kvw7"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="2_awket"]
+
+[node name="Chunk_3" instance=ExtResource("1_5kvw7")]
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("2_awket")]
+position = Vector2(321, 222)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0tbym61kfyno"]
+
+[ext_resource type="Script" path="res://scenes/pickups/pickup.gd" id="1_8h6gp"]
+[ext_resource type="Texture2D" uid="uid://bung2i84puryr" path="res://assets/sprites/pickups/17_burger_napkin.png" id="1_8qi5t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_unbx0"]
+radius = 16.0
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_8h6gp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8qi5t")
+region_rect = Rect2(994, 214, 12, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_unbx0")
