@@ -6,5 +6,6 @@
 script = ExtResource("1_naoy8")
 
 [node name="StateDebugLabel" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0

@@ -8,8 +8,6 @@ const MAX_SPEED: float = 30.0
 const ACCELERATION: float = 0.05
 
 var speed: float = INITIAL_SPEED
-var distance_score: float = 0.0
-var additional_score: float = 0.0 # score we get from collectibles and stuff
 
 var started: bool = false
 var over: bool = false
@@ -21,12 +19,24 @@ var over: bool = false
 @onready var music_button: TextureButton = %MusicButton
 @onready var sound_button: TextureButton = %SoundButton
 @onready var ui_animation_player: AnimationPlayer = %UIAnimationPlayer
+@onready var score_label: Label = %ScoreLabel
+@onready var high_score_label: Label = %HighScoreLabel
+
+# SCORE
+const SAVE_FILE = "user://highscore.save"
+const CONFIG_SECTION = "game"
+const HIGH_SCORE_KEY = "high_score"
+var distance_score: float = 0.0
+var additional_score: float = 0.0 # score we get from collectibles and stuff
+var high_score: float = 0.0
+var score_speed: float = 3.0
 
 
 func _ready() -> void:
 	chunk_manager.initialize(self)
 	kimmy.game = self
 	kimmy.died.connect(on_game_over)
+	load_high_score()
 	setup_menu()
 
 
@@ -39,17 +49,28 @@ func _process(delta: float) -> void:
 	if speed < MAX_SPEED and started: # only increase speed if the game already started
 		speed = min(MAX_SPEED, speed + ACCELERATION * delta)
 	
-	distance_score += speed * delta # we can add a modifier here
+	distance_score += speed * delta * score_speed
+	var score_text: String = str(int(distance_score + additional_score))
+	score_label.text = "SCORE: " + score_text
+	if distance_score + additional_score > high_score:
+		high_score_label.text = "HIGH SCORE: " + score_text
 
 
 func restart_game() -> void:
 	speed = INITIAL_SPEED
 	distance_score = 0.0
 	additional_score = 0.0
+	over = false
+	load_high_score()
 
 
 func on_game_over() -> void:
 	over = true
+	var final_score: float = distance_score + additional_score
+	
+	if final_score > high_score:
+		high_score = final_score
+		save_high_score()
 
 
 func setup_menu() -> void:
@@ -78,3 +99,23 @@ func on_start_button_pressed() -> void:
 		ui_animation_player.play("start_menu_out")
 		Audio.play_sound("woosh")
 		Audio.play_music("game")
+		await ui_animation_player.animation_finished
+		ui_animation_player.play("gameplay_in")
+
+
+func load_high_score() -> void:
+	var config = ConfigFile.new()
+	var err = config.load(SAVE_FILE)
+	
+	if err == OK:
+		high_score = config.get_value(CONFIG_SECTION, HIGH_SCORE_KEY, 0.0)
+	else:
+		high_score = 0.0
+	
+	high_score_label.text = "HIGH SCORE: " + str(int(high_score))
+
+
+func save_high_score() -> void:
+	var config = ConfigFile.new()
+	config.set_value(CONFIG_SECTION, HIGH_SCORE_KEY, high_score)
+	config.save(SAVE_FILE)
