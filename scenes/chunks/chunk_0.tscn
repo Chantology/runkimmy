@@ -4,23 +4,25 @@
 [ext_resource type="Script" path="res://scenes/chunks/chunk.gd" id="1_gtf0p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yy6po"]
-size = Vector2(640, 68)
+size = Vector2(638, 68)
 
 [node name="Chunk" type="Node2D"]
 script = ExtResource("1_gtf0p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(320, 296)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 30)
-shape = SubResource("RectangleShape2D_yy6po")
+collision_layer = 2
+collision_mask = 0
 
 [node name="Ground" type="Sprite2D" parent="StaticBody2D"]
 texture_repeat = 2
 texture = ExtResource("1_e0v4b")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_yy6po")
 
 [node name="EndPosition" type="Marker2D" parent="."]
 position = Vector2(640, 180)
