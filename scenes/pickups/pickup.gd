@@ -12,3 +12,9 @@ func setup_sprite() -> void:
 		return
 	
 	$Sprite2D.texture = PickupManager.get_random_sprite()
+
+
+func on_body_entered(body: Node2D) -> void:
+	if body is Kimmy:
+		print("Kimmy picked me up!")
+		queue_free()
