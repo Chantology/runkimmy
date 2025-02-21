@@ -34,10 +34,10 @@ func _on_collision_area_body_entered(body: Node2D) -> void:
 	if body is Obstacle:
 		print("Collided with obstacle!")
 		handle_obstacle_collision(body)
-	else: # I collided with a platform!
-		if not is_on_floor():
-			print("not on floor")
-			die()
+	#else: # I collided with a platform!
+		#if not is_on_floor():
+			#print("not on floor")
+			#die()
 
 
 func play_animation(animation_name: String) -> void:

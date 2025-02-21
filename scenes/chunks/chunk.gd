@@ -1,9 +1,10 @@
 class_name Chunk extends Node2D
 
+var index: int
+
 @onready var end_trigger: Node2D = $EndPosition
 @onready var static_body: StaticBody2D = $StaticBody2D
 @export var collision_shapes: Array[CollisionShape2D]
-var index: int
 
 var pickups: Array[Pickup]
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://844uqljektgl" path="res://scenes/obstacles/crate.tscn" id="3_m2241"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ukaj"]
-size = Vector2(576, 39.5)
+size = Vector2(576, 2)
 
 [node name="Chunk_2" instance=ExtResource("1_6dnep")]
 
@@ -25,5 +25,6 @@ region_enabled = true
 region_rect = Rect2(0, 0, 576, 43)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" index="1"]
-position = Vector2(0, 1.75)
+position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_6ukaj")
+one_way_collision = true

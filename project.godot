@@ -19,6 +19,7 @@ config/icon="res://assets/logos/icon.png"
 
 Audio="*res://scenes/autoload/audio.tscn"
 PickupManager="*res://scenes/autoload/pickup_manager.tscn"
+ScoreManager="*res://scenes/autoload/score_manager.tscn"
 
 [display]
 
