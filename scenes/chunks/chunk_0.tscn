@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://gu08y4gx6hyi"]
 
 [ext_resource type="Texture2D" uid="uid://djre6wc8mm30g" path="res://assets/sprites/ground.png" id="1_e0v4b"]
-[ext_resource type="Script" path="res://scenes/chunks/chunk.gd" id="1_gtf0p"]
+[ext_resource type="Script" path="res://scenes/chunks/chunk.gd" id="1_wlbei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yy6po"]
 size = Vector2(638, 68)
 
 [node name="Chunk" type="Node2D" node_paths=PackedStringArray("collision_shapes")]
-script = ExtResource("1_gtf0p")
+script = ExtResource("1_wlbei")
 collision_shapes = [NodePath("StaticBody2D/CollisionShape2D")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -32,3 +32,5 @@ position = Vector2(640, 180)
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="Pickups" type="Node2D" parent="."]
+
+[connection signal="draw" from="." to="." method="on_draw"]
