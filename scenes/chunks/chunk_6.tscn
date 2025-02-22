@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ces6fi14wfwha"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_qob7s"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="2_wc7u0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_112vi"]
+size = Vector2(320, 68)
+
+[node name="Chunk_6" instance=ExtResource("1_qob7s")]
+
+[node name="Ground" parent="StaticBody2D" index="0"]
+region_rect = Rect2(0, 0, 320, 128)
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="1"]
+shape = SubResource("RectangleShape2D_112vi")
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("2_wc7u0")]
+position = Vector2(211, 250)
+
+[node name="Pickup2" parent="Pickups" index="1" instance=ExtResource("2_wc7u0")]
+position = Vector2(320, 250)
+
+[node name="Pickup3" parent="Pickups" index="2" instance=ExtResource("2_wc7u0")]
+position = Vector2(429, 250)

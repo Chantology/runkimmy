@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0tbym61kfyno"]
+[gd_scene load_steps=7 format=3 uid="uid://d0tbym61kfyno"]
 
 [ext_resource type="Script" path="res://scenes/pickups/pickup.gd" id="1_8h6gp"]
 [ext_resource type="Texture2D" uid="uid://bung2i84puryr" path="res://assets/sprites/pickups/17_burger_napkin.png" id="1_8qi5t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_unbx0"]
 radius = 16.0
+
+[sub_resource type="Animation" id="Animation_jt65y"]
+resource_name = "float"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_yedok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6mrky"]
+_data = {
+"RESET": SubResource("Animation_yedok"),
+"float": SubResource("Animation_jt65y")
+}
 
 [node name="Pickup" type="Area2D"]
 script = ExtResource("1_8h6gp")
@@ -15,5 +52,11 @@ region_rect = Rect2(994, 214, 12, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_unbx0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6mrky")
+}
+autoplay = "float"
 
 [connection signal="body_entered" from="." to="." method="on_body_entered"]

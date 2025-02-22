@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbrv6x5kq64d7"]
+[gd_scene load_steps=27 format=3 uid="uid://dbrv6x5kq64d7"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_jc2bs"]
 [ext_resource type="Texture2D" uid="uid://c7xit64qqm4to" path="res://assets/sprites/background/parallax/1.png" id="2_2wfko"]
@@ -349,6 +349,9 @@ _data = {
 "start_menu_out": SubResource("Animation_cpl6g")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juo5f"]
+size = Vector2(640, 20)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_jc2bs")
 
@@ -648,6 +651,14 @@ libraries = {
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(320, 180)
 zoom = Vector2(3, 3)
+
+[node name="LoseArea2D" type="Area2D" parent="."]
+position = Vector2(320, 370)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea2D"]
+shape = SubResource("RectangleShape2D_juo5f")
 
 [connection signal="pressed" from="CanvasLayer/UserInterface/StartMenu/StartButton" to="." method="on_start_button_pressed"]
 [connection signal="toggled" from="CanvasLayer/UserInterface/StartMenu/MusicButton" to="." method="on_music_button_toggled"]

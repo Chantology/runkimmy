@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://canvlnps8046s"]
-
-[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_m37xe"]
-
-[node name="Chunk_1" instance=ExtResource("1_m37xe")]

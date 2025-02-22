@@ -13,7 +13,8 @@ var dead: bool = false
 
 func _ready() -> void:
 	state_machine.initialize(self)
-	collision_area.body_entered.connect(_on_collision_area_body_entered)
+	collision_area.body_entered.connect(on_collision_area_body_entered)
+	collision_area.area_entered.connect(on_collision_area_area_entered)
 
 
 func _physics_process(delta: float) -> void:
@@ -24,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_collision_area_body_entered(body: Node2D) -> void:
+func on_collision_area_body_entered(body: Node2D) -> void:
 	if dead:
 		return
 	
@@ -34,6 +35,13 @@ func _on_collision_area_body_entered(body: Node2D) -> void:
 	if body is Obstacle:
 		print("Collided with obstacle!")
 		handle_obstacle_collision(body)
+
+
+func on_collision_area_area_entered(area: Area2D) -> void:
+	if dead:
+		return
+	
+	die()
 
 
 func play_animation(animation_name: String) -> void:

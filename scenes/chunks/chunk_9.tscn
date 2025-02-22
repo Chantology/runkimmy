@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://b15klp7j6glj1"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_ma3mc"]
+[ext_resource type="PackedScene" uid="uid://bs8kbv8sxnf48" path="res://scenes/obstacles/containers.tscn" id="2_ww0k7"]
+[ext_resource type="PackedScene" uid="uid://svh22uxsvspt" path="res://scenes/obstacles/bin.tscn" id="3_dqgnp"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="4_m8qgu"]
+[ext_resource type="Texture2D" uid="uid://dottblsowmku0" path="res://assets/sprites/platform.png" id="5_40rbn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62sgu"]
+size = Vector2(192, 2)
+
+[node name="Chunk_9" instance=ExtResource("1_ma3mc")]
+
+[node name="Containers" parent="Obstacles" index="0" instance=ExtResource("2_ww0k7")]
+position = Vector2(51, 291)
+
+[node name="Containers2" parent="Obstacles" index="1" instance=ExtResource("2_ww0k7")]
+position = Vector2(274, 291)
+
+[node name="Containers3" parent="Obstacles" index="2" instance=ExtResource("2_ww0k7")]
+position = Vector2(451, 291)
+
+[node name="Bin" parent="Obstacles" index="3" instance=ExtResource("3_dqgnp")]
+position = Vector2(125, 292)
+
+[node name="Bin2" parent="Obstacles" index="4" instance=ExtResource("3_dqgnp")]
+position = Vector2(194, 292)
+
+[node name="Bin3" parent="Obstacles" index="5" instance=ExtResource("3_dqgnp")]
+position = Vector2(378, 292)
+
+[node name="Bin4" parent="Obstacles" index="6" instance=ExtResource("3_dqgnp")]
+position = Vector2(526, 292)
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("4_m8qgu")]
+position = Vector2(212, 113)
+
+[node name="Pickup2" parent="Pickups" index="1" instance=ExtResource("4_m8qgu")]
+position = Vector2(253, 64)
+
+[node name="Pickup3" parent="Pickups" index="2" instance=ExtResource("4_m8qgu")]
+position = Vector2(312, 35)
+
+[node name="Pickup4" parent="Pickups" index="3" instance=ExtResource("4_m8qgu")]
+position = Vector2(375, 70)
+
+[node name="Pickup5" parent="Pickups" index="4" instance=ExtResource("4_m8qgu")]
+position = Vector2(408, 113)
+
+[node name="Platform" type="StaticBody2D" parent="." index="4"]
+position = Vector2(98, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform" index="0"]
+texture_repeat = 2
+texture = ExtResource("5_40rbn")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" index="1"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_62sgu")
+one_way_collision = true
+
+[node name="Platform2" type="StaticBody2D" parent="." index="5"]
+position = Vector2(540, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2" index="0"]
+texture_repeat = 2
+texture = ExtResource("5_40rbn")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" index="1"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_62sgu")
+one_way_collision = true

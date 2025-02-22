@@ -7,6 +7,11 @@ var game: Game
 	preload("res://scenes/chunks/chunk_2.tscn"),
 	preload("res://scenes/chunks/chunk_3.tscn"),
 	preload("res://scenes/chunks/chunk_4.tscn"),
+	preload("res://scenes/chunks/chunk_5.tscn"),
+	preload("res://scenes/chunks/chunk_6.tscn"),
+	preload("res://scenes/chunks/chunk_7.tscn"),
+	preload("res://scenes/chunks/chunk_8.tscn"),
+	preload("res://scenes/chunks/chunk_9.tscn"),
 ]
 
 @export var active_chunk_count: int = 3
@@ -18,7 +23,20 @@ var chunk_pool: Array[Chunk] = []  # Pool of reusable chunks
 var speed_thresholds_dictionary: Dictionary = {
 	2.0: [0],
 	2.01: [1, 2, 3],
-	3: [1, 2, 3]
+	3: [3, 4],
+	4: [6, 5],
+	6: [7, 8],
+	8: [7, 8, 10],
+	10: [4, 5],
+	12: [4, 5],
+	14: [4, 5],
+	16: [4, 5],
+	18: [4, 5],
+	20: [4, 5],
+	22: [4, 5],
+	24: [4, 5],
+	26: [4, 5],
+	28: [4, 5],
 }
 
 var speed_thresholds: Array [SpeedThreshold] = []
@@ -108,6 +126,8 @@ func recycle_chunk(chunk: Chunk) -> void:
 	chunk.visible = false
 	chunk.position = Vector2(-9999, -9999)  # Move offscreen
 	if available_indices.has(chunk.index):
+		if chunk.index == 0 and game.started:
+			return
 		chunk_pool.append(chunk)  # Return to pool only if it's on the available chunks list
 
 

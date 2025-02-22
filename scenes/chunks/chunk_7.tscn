@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://cn2m40sxysf1s"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_dbvfj"]
+[ext_resource type="PackedScene" uid="uid://c5kql2so356xb" path="res://scenes/obstacles/garbage_bag.tscn" id="2_6sr3j"]
+[ext_resource type="PackedScene" uid="uid://cp41j3477o7pf" path="res://scenes/obstacles/food_stand.tscn" id="3_xc8fq"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="4_vtp1r"]
+[ext_resource type="Texture2D" uid="uid://dja2neam60l1d" path="res://assets/sprites/pickups/soft_drink_red.png" id="5_jld0o"]
+[ext_resource type="Texture2D" uid="uid://dottblsowmku0" path="res://assets/sprites/platform.png" id="6_sdnin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tye80"]
+size = Vector2(192, 2)
+
+[node name="Chunk_7" instance=ExtResource("1_dbvfj")]
+
+[node name="GarbageBag" parent="Obstacles" index="0" instance=ExtResource("2_6sr3j")]
+position = Vector2(444, 293)
+
+[node name="FoodStand" parent="Obstacles" index="1" instance=ExtResource("3_xc8fq")]
+position = Vector2(196, 292)
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("4_vtp1r")]
+position = Vector2(530, 134)
+random_sprite = false
+
+[node name="Sprite2D" parent="Pickups/Pickup" index="0"]
+texture = ExtResource("5_jld0o")
+
+[node name="Platform" type="StaticBody2D" parent="." index="4"]
+position = Vector2(530, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform" index="0"]
+texture_repeat = 2
+texture = ExtResource("6_sdnin")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" index="1"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_tye80")
+one_way_collision = true
+
+[editable path="Pickups/Pickup"]

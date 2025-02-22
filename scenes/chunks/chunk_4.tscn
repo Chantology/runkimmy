@@ -11,21 +11,19 @@ size = Vector2(192, 2)
 [node name="Chunk_4" instance=ExtResource("1_ac0mu")]
 
 [node name="Barrel" parent="Obstacles" index="0" instance=ExtResource("2_mrm7i")]
-position = Vector2(241, 292)
-collision_layer = 1
-collision_mask = 1
+position = Vector2(141, 291)
 
-[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("3_pwvtd")]
-position = Vector2(91, 266)
+[node name="Barrel2" parent="Obstacles" index="1" instance=ExtResource("2_mrm7i")]
+position = Vector2(494, 161)
 
-[node name="Pickup2" parent="Pickups" index="1" instance=ExtResource("3_pwvtd")]
-position = Vector2(320, 266)
+[node name="Pickup2" parent="Pickups" index="0" instance=ExtResource("3_pwvtd")]
+position = Vector2(383, 266)
 
-[node name="Pickup3" parent="Pickups" index="2" instance=ExtResource("3_pwvtd")]
+[node name="Pickup3" parent="Pickups" index="1" instance=ExtResource("3_pwvtd")]
 position = Vector2(558, 266)
 
 [node name="Platform" type="StaticBody2D" parent="." index="4"]
-position = Vector2(174, 172)
+position = Vector2(174, 180)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform" index="0"]
 texture_repeat = 2
@@ -39,7 +37,7 @@ shape = SubResource("RectangleShape2D_mwfq0")
 one_way_collision = true
 
 [node name="Platform2" type="StaticBody2D" parent="." index="5"]
-position = Vector2(462, 172)
+position = Vector2(462, 180)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform2" index="0"]
 texture_repeat = 2

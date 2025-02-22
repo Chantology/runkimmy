@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl8eght0h8e"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_a2d8w"]
+[ext_resource type="Texture2D" uid="uid://djre6wc8mm30g" path="res://assets/sprites/ground.png" id="2_rcifs"]
+[ext_resource type="PackedScene" uid="uid://cnrvnsta4vfp3" path="res://scenes/obstacles/traffic_cone.tscn" id="3_nxu4q"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="4_laiij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilnqx"]
+size = Vector2(220, 68)
+
+[node name="Chunk_8" instance=ExtResource("1_a2d8w")]
+
+[node name="StaticBody2D" parent="." index="0"]
+position = Vector2(151, 296)
+
+[node name="Ground" parent="StaticBody2D" index="0"]
+region_rect = Rect2(0, 0, 220, 128)
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="1"]
+shape = SubResource("RectangleShape2D_ilnqx")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="1"]
+position = Vector2(472, 296)
+collision_layer = 3
+collision_mask = 3
+
+[node name="Ground" type="Sprite2D" parent="StaticBody2D2" index="0"]
+texture_repeat = 2
+texture = ExtResource("2_rcifs")
+region_enabled = true
+region_rect = Rect2(0, 0, 220, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="1"]
+position = Vector2(0, 30)
+shape = SubResource("RectangleShape2D_ilnqx")
+disabled = true
+
+[node name="TrafficCone" parent="Obstacles" index="0" instance=ExtResource("3_nxu4q")]
+position = Vector2(371, 292)
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("4_laiij")]
+position = Vector2(370, 194)

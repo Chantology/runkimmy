@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcto2ach5strq"]
+[gd_scene load_steps=3 format=3 uid="uid://dcto2ach5strq"]
 
 [ext_resource type="Script" path="res://scenes/state_machine/state_machine.gd" id="1_naoy8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ygpw"]
+font_size = 24
 
 [node name="StateMachine" type="Node"]
 script = ExtResource("1_naoy8")
@@ -9,3 +12,4 @@ script = ExtResource("1_naoy8")
 visible = false
 offset_right = 40.0
 offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_5ygpw")
