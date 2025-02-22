@@ -5,6 +5,7 @@
 
 [node name="Containers" instance=ExtResource("1_y0odf")]
 mass = 10.0
+collide_sound = "explosion"
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -54)

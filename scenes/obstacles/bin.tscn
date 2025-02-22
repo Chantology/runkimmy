@@ -8,6 +8,7 @@ radius = 17.0
 height = 52.0
 
 [node name="Bin" instance=ExtResource("1_oygk0")]
+collide_sound = "explosion"
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -48)

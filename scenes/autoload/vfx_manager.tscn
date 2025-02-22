@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://du8v3o5mkubhi"]
+
+[ext_resource type="Script" path="res://scenes/autoload/vfx_manager.gd" id="1_66e2m"]
+[ext_resource type="PackedScene" uid="uid://c0e0f8rfm61g2" path="res://scenes/particles/jump_vfx_particles.tscn" id="2_eg8iy"]
+[ext_resource type="PackedScene" uid="uid://dqapaoxpok55k" path="res://scenes/particles/run_vfx_particles.tscn" id="3_s22fs"]
+[ext_resource type="PackedScene" uid="uid://dt7dux0332vp4" path="res://scenes/particles/pickup_particles.tscn" id="4_mafrn"]
+[ext_resource type="PackedScene" uid="uid://5xuxh6wl1kdh" path="res://scenes/particles/pickup_vfx.tscn" id="4_v2csy"]
+
+[node name="VFXManager" type="Node2D"]
+z_index = 1
+script = ExtResource("1_66e2m")
+jump_animated_sprite_scene = ExtResource("2_eg8iy")
+run_animated_sprite_scene = ExtResource("3_s22fs")
+pickup_animated_sprite_scene = ExtResource("4_v2csy")
+pickup_particles_scene = ExtResource("4_mafrn")

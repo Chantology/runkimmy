@@ -18,4 +18,6 @@ func on_body_entered(body: Node2D) -> void:
 	if body is Kimmy:
 		print("Kimmy picked me up!")
 		ScoreManager.additional_score += 50
+		VfxManager.instantiate_pickup_particles(global_position)
+		Audio.play_sound("CollectStar", 1)
 		hide()

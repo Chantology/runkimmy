@@ -34,10 +34,6 @@ func _on_collision_area_body_entered(body: Node2D) -> void:
 	if body is Obstacle:
 		print("Collided with obstacle!")
 		handle_obstacle_collision(body)
-	#else: # I collided with a platform!
-		#if not is_on_floor():
-			#print("not on floor")
-			#die()
 
 
 func play_animation(animation_name: String) -> void:
@@ -56,6 +52,8 @@ func handle_obstacle_collision(obstacle: Obstacle) -> void:
 	
 	obstacle.apply_central_impulse(force_direction * impact_force) # Apply force
 	obstacle.apply_torque_impulse(randf_range(-100.0, 100.0))      # Apply rotation
+	
+	Audio.play_sound(obstacle.collide_sound)
 	
 	obstacle_hit.emit(obstacle)
 	print("obstacle coll")

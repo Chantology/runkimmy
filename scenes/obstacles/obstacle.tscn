@@ -8,6 +8,8 @@ friction = 0.5
 
 [node name="Obstacle" type="RigidBody2D"]
 z_index = 1
+collision_layer = 3
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_b4q2o")
 freeze = true
 script = ExtResource("1_ya08y")

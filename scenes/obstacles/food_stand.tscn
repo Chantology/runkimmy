@@ -5,6 +5,7 @@
 
 [node name="FoodStand" instance=ExtResource("1_3inp1")]
 mass = 10.0
+collide_sound = "explosion"
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -123)

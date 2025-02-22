@@ -4,3 +4,8 @@
 
 [node name="RunState" type="Node"]
 script = ExtResource("1_2tb2o")
+
+[node name="ParticleSpawnTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="ParticleSpawnTimer" to="." method="on_particle_spawn_timer_timeout"]

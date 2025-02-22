@@ -9,6 +9,7 @@ const ACCELERATION: float = 0.05
 
 var speed: float = INITIAL_SPEED
 
+var can_start: bool = false
 var started: bool = false
 var over: bool = false
 
@@ -24,6 +25,7 @@ var over: bool = false
 
 
 func _ready() -> void:
+	VfxManager.game = self
 	chunk_manager.initialize(self)
 	kimmy.game = self
 	kimmy.died.connect(on_game_over)
@@ -61,18 +63,22 @@ func on_game_over() -> void:
 	if final_score > ScoreManager.high_score:
 		ScoreManager.high_score = final_score
 		ScoreManager.save_high_score()
+	
+	ui_animation_player.play("game_over_in")
 
 
 func setup_menu() -> void:
+	high_score_label.text = "HIGH SCORE: " + str(int(ScoreManager.high_score))
 	Audio.play_music("menu")
 	ui_animation_player.play("start_menu_in")
 	Audio.play_sound("woosh")
-	
 	if Audio.is_music_muted:
 		music_button.set_pressed_no_signal(true)
 	
 	if Audio.is_sound_muted:
 		music_button.set_pressed_no_signal(true)
+	await ui_animation_player.animation_finished
+	can_start = true
 
 
 func on_music_button_toggled(_toggled_on: bool) -> void:
@@ -84,10 +90,19 @@ func on_sound_button_toggled(_toggled_on: bool) -> void:
 
 
 func on_start_button_pressed() -> void:
-	if not started and not over:
+	if not started and not over and can_start:
 		started = true
 		ui_animation_player.play("start_menu_out")
 		Audio.play_sound("woosh")
 		Audio.play_music("game")
 		await ui_animation_player.animation_finished
 		ui_animation_player.play("gameplay_in")
+
+
+func on_restart_button_pressed() -> void:
+	restart_game()
+	
+	var tree := get_tree()
+	var scene_path := tree.current_scene.scene_file_path
+	tree.call_deferred("unload_current_scene")
+	tree.call_deferred("change_scene_to_file", scene_path)

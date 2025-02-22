@@ -5,7 +5,8 @@ var game: Game
 @export var chunk_scenes: Array[PackedScene] = [
 	preload("res://scenes/chunks/chunk_1.tscn"),
 	preload("res://scenes/chunks/chunk_2.tscn"),
-	preload("res://scenes/chunks/chunk_3.tscn")
+	preload("res://scenes/chunks/chunk_3.tscn"),
+	preload("res://scenes/chunks/chunk_4.tscn"),
 ]
 
 @export var active_chunk_count: int = 3
@@ -15,8 +16,9 @@ var active_chunks: Array[Chunk] = []
 var chunk_pool: Array[Chunk] = []  # Pool of reusable chunks
 
 var speed_thresholds_dictionary: Dictionary = {
-	0.0: [0],
-	2.05: [1, 2]
+	2.0: [0],
+	2.01: [1, 2, 3],
+	3: [1, 2, 3]
 }
 
 var speed_thresholds: Array [SpeedThreshold] = []

@@ -13,6 +13,7 @@ func enter() -> void:
 	kimmy.play_animation("jump")
 	kimmy.velocity.y = double_jump_force
 	
+	VfxManager.instantiate_jump_particles(kimmy.global_position)
 	Audio.play_sound("jump")
 	
 	var tween: Tween = get_tree().create_tween()

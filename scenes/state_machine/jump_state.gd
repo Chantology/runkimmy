@@ -12,6 +12,7 @@ func enter() -> void:
 	kimmy.play_animation("jump")
 	kimmy.velocity.y = jump_force
 	
+	VfxManager.instantiate_jump_particles(kimmy.global_position)
 	Audio.play_sound("jump")
 
 

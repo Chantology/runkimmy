@@ -6,6 +6,7 @@
 size = Vector2(47, 66)
 
 [node name="Barrel" instance=ExtResource("1_xubly")]
+collide_sound = "explosion"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(0.5, -33)
