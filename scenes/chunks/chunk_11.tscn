@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://dspdpblk0o7ep"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_yo3vu"]
+[ext_resource type="PackedScene" uid="uid://8qdbtqvsfe1m" path="res://scenes/obstacles/barrel.tscn" id="2_ys7mm"]
+[ext_resource type="PackedScene" uid="uid://svh22uxsvspt" path="res://scenes/obstacles/bin.tscn" id="3_rs25b"]
+[ext_resource type="PackedScene" uid="uid://bs8kbv8sxnf48" path="res://scenes/obstacles/containers.tscn" id="4_3peir"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="5_vfujr"]
+
+[node name="Chunk_11" instance=ExtResource("1_yo3vu")]
+
+[node name="Barrel" parent="Obstacles" index="0" instance=ExtResource("2_ys7mm")]
+position = Vector2(115, 292)
+
+[node name="Bin" parent="Obstacles" index="1" instance=ExtResource("3_rs25b")]
+position = Vector2(361, 292)
+
+[node name="Containers" parent="Obstacles" index="2" instance=ExtResource("4_3peir")]
+position = Vector2(547, 292)
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("5_vfujr")]
+position = Vector2(244, 266)
+
+[node name="Pickup2" parent="Pickups" index="1" instance=ExtResource("5_vfujr")]
+position = Vector2(443, 268)

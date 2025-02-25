@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cn2m40sxysf1s"]
+[gd_scene load_steps=9 format=3 uid="uid://cn2m40sxysf1s"]
 
 [ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_dbvfj"]
 [ext_resource type="PackedScene" uid="uid://c5kql2so356xb" path="res://scenes/obstacles/garbage_bag.tscn" id="2_6sr3j"]
 [ext_resource type="PackedScene" uid="uid://cp41j3477o7pf" path="res://scenes/obstacles/food_stand.tscn" id="3_xc8fq"]
 [ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="4_vtp1r"]
 [ext_resource type="Texture2D" uid="uid://dja2neam60l1d" path="res://assets/sprites/pickups/soft_drink_red.png" id="5_jld0o"]
+[ext_resource type="Texture2D" uid="uid://bo30cgxrqgph6" path="res://assets/sprites/pickups/56_hotdog_dish.png" id="6_quv8w"]
 [ext_resource type="Texture2D" uid="uid://dottblsowmku0" path="res://assets/sprites/platform.png" id="6_sdnin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tye80"]
@@ -25,6 +26,13 @@ random_sprite = false
 [node name="Sprite2D" parent="Pickups/Pickup" index="0"]
 texture = ExtResource("5_jld0o")
 
+[node name="Pickup2" parent="Pickups" index="1" instance=ExtResource("4_vtp1r")]
+position = Vector2(256, 209)
+random_sprite = false
+
+[node name="Sprite2D" parent="Pickups/Pickup2" index="0"]
+texture = ExtResource("6_quv8w")
+
 [node name="Platform" type="StaticBody2D" parent="." index="4"]
 position = Vector2(530, 180)
 
@@ -40,3 +48,4 @@ shape = SubResource("RectangleShape2D_tye80")
 one_way_collision = true
 
 [editable path="Pickups/Pickup"]
+[editable path="Pickups/Pickup2"]

@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da0m0"]
 size = Vector2(80, 68)
 
-[node name="Chunk_10" instance=ExtResource("1_a7yum")]
+[node name="Chunk_10" node_paths=PackedStringArray("collision_shapes") instance=ExtResource("1_a7yum")]
+collision_shapes = [NodePath("StaticBody2D/CollisionShape2D"), NodePath("StaticBody2D2/CollisionShape2D")]
 
 [node name="StaticBody2D" parent="." index="0"]
 position = Vector2(40, 296)

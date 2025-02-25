@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bltamobuewoj2"]
+[gd_scene load_steps=7 format=3 uid="uid://bltamobuewoj2"]
 
 [ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_ac0mu"]
 [ext_resource type="PackedScene" uid="uid://8qdbtqvsfe1m" path="res://scenes/obstacles/barrel.tscn" id="2_mrm7i"]
+[ext_resource type="PackedScene" uid="uid://dbo6nvgi5g5lv" path="res://scenes/obstacles/box.tscn" id="3_nv7xd"]
 [ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="3_pwvtd"]
 [ext_resource type="Texture2D" uid="uid://dottblsowmku0" path="res://assets/sprites/platform.png" id="4_krfq4"]
 
@@ -13,30 +14,13 @@ size = Vector2(192, 2)
 [node name="Barrel" parent="Obstacles" index="0" instance=ExtResource("2_mrm7i")]
 position = Vector2(141, 291)
 
-[node name="Barrel2" parent="Obstacles" index="1" instance=ExtResource("2_mrm7i")]
-position = Vector2(494, 161)
+[node name="Box" parent="Obstacles" index="1" instance=ExtResource("3_nv7xd")]
+position = Vector2(489, 163)
 
-[node name="Pickup2" parent="Pickups" index="0" instance=ExtResource("3_pwvtd")]
-position = Vector2(383, 266)
+[node name="Pickup3" parent="Pickups" index="0" instance=ExtResource("3_pwvtd")]
+position = Vector2(495, 66)
 
-[node name="Pickup3" parent="Pickups" index="1" instance=ExtResource("3_pwvtd")]
-position = Vector2(558, 266)
-
-[node name="Platform" type="StaticBody2D" parent="." index="4"]
-position = Vector2(174, 180)
-
-[node name="Sprite2D" type="Sprite2D" parent="Platform" index="0"]
-texture_repeat = 2
-texture = ExtResource("4_krfq4")
-region_enabled = true
-region_rect = Rect2(0, 0, 192, 43)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" index="1"]
-position = Vector2(0, -17)
-shape = SubResource("RectangleShape2D_mwfq0")
-one_way_collision = true
-
-[node name="Platform2" type="StaticBody2D" parent="." index="5"]
+[node name="Platform2" type="StaticBody2D" parent="." index="4"]
 position = Vector2(462, 180)
 
 [node name="Sprite2D" type="Sprite2D" parent="Platform2" index="0"]

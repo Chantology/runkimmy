@@ -12,10 +12,14 @@ var game: Game
 	preload("res://scenes/chunks/chunk_7.tscn"),
 	preload("res://scenes/chunks/chunk_8.tscn"),
 	preload("res://scenes/chunks/chunk_9.tscn"),
+	preload("res://scenes/chunks/chunk_10.tscn"),
+	preload("res://scenes/chunks/chunk_11.tscn"),
+	preload("res://scenes/chunks/chunk_12.tscn"),
+	preload("res://scenes/chunks/chunk_13.tscn"),
 ]
 
 @export var active_chunk_count: int = 3
-@export var pool_size: int = 3  # Keep extra chunks for smooth transitions
+@export var pool_size: int = 6  # Keep extra chunks for smooth transitions
 
 var active_chunks: Array[Chunk] = []
 var chunk_pool: Array[Chunk] = []  # Pool of reusable chunks
@@ -23,11 +27,11 @@ var chunk_pool: Array[Chunk] = []  # Pool of reusable chunks
 var speed_thresholds_dictionary: Dictionary = {
 	2.0: [0],
 	2.01: [1, 2, 3],
-	3: [3, 4],
-	4: [6, 5],
-	6: [7, 8],
-	8: [7, 8, 10],
-	10: [4, 5],
+	3: [1, 2, 3, 4],
+	4: [3, 4, 5, 6],
+	6: [5, 6, 7, 8],
+	8: [7, 8, 9, 10],
+	10: [9, 10, 11, 12],
 	12: [4, 5],
 	14: [4, 5],
 	16: [4, 5],
@@ -132,14 +136,40 @@ func recycle_chunk(chunk: Chunk) -> void:
 
 
 func get_available_chunk_indices() -> Array:
-	var current_speed := game.speed
+	var current_speed: float = game.speed
 	var available_indices: Array = []
 	
 	# Find the highest threshold that's below or equal to current speed
 	for threshold in speed_thresholds:
 		if current_speed >= threshold.min_speed:
 			available_indices = threshold.chunk_indices
-	
-	print(available_indices)
+			if game.started and threshold.chunk_indices == [0]: # This is such an ugly patch. But it works :-)
+				available_indices = [1, 2, 3]
 	
 	return available_indices
+
+
+func on_game_start() -> void:
+	# Keep only chunks that are visible on screen
+	# We'll keep the first 1-2 chunks
+	var chunks_to_keep: Array[Chunk] = []
+	
+	# Only keep the first 2 active chunks, which should be what's visible
+	var visible_chunks_count = min(2, active_chunks.size())
+	
+	for i in range(active_chunks.size()):
+		if i < visible_chunks_count:
+			chunks_to_keep.append(active_chunks[i])
+		else:
+			# Remove chunks beyond what's visible
+			active_chunks[i].queue_free()
+	
+	# Replace active_chunks with only the chunks we want to keep
+	active_chunks = chunks_to_keep
+	
+	# Clear the entire chunk pool since these aren't visible
+	for chunk in chunk_pool:
+		chunk.queue_free()
+	
+	# Reset the pool to empty
+	chunk_pool = []

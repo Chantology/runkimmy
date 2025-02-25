@@ -5,7 +5,7 @@ class_name Game extends Node2D
 
 const INITIAL_SPEED: float = 2.0
 const MAX_SPEED: float = 30.0
-const ACCELERATION: float = 0.05
+const ACCELERATION: float = 0.08
 
 var speed: float = INITIAL_SPEED
 
@@ -91,6 +91,7 @@ func on_sound_button_toggled(_toggled_on: bool) -> void:
 
 func on_start_button_pressed() -> void:
 	if not started and not over and can_start:
+		chunk_manager.on_game_start()
 		started = true
 		ui_animation_player.play("start_menu_out")
 		Audio.play_sound("woosh")
