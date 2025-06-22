@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djre6wc8mm30g" path="res://assets/sprites/ground.png" id="2_gwu3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da0m0"]
-size = Vector2(80, 68)
+size = Vector2(293, 68)
 
 [node name="Chunk_10" node_paths=PackedStringArray("collision_shapes") instance=ExtResource("1_a7yum")]
 collision_shapes = [NodePath("StaticBody2D/CollisionShape2D"), NodePath("StaticBody2D2/CollisionShape2D")]
@@ -13,9 +13,12 @@ collision_shapes = [NodePath("StaticBody2D/CollisionShape2D"), NodePath("StaticB
 position = Vector2(40, 296)
 
 [node name="Ground" parent="StaticBody2D" index="0"]
+position = Vector2(107, 0)
+scale = Vector2(3.675, 1)
 region_rect = Rect2(0, 0, 80, 128)
 
 [node name="CollisionShape2D" parent="StaticBody2D" index="1"]
+position = Vector2(106.5, 30)
 shape = SubResource("RectangleShape2D_da0m0")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." index="1"]
@@ -25,6 +28,8 @@ collision_mask = 3
 
 [node name="Ground" type="Sprite2D" parent="StaticBody2D2" index="0"]
 texture_repeat = 2
+position = Vector2(4.57764e-05, 0)
+scale = Vector2(3.675, 1)
 texture = ExtResource("2_gwu3y")
 region_enabled = true
 region_rect = Rect2(0, 0, 80, 128)
