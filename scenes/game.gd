@@ -5,7 +5,7 @@ class_name Game extends Node2D
 
 const INITIAL_SPEED: float = 2.0
 const MAX_SPEED: float = 30.0
-const ACCELERATION: float = 0.05
+const ACCELERATION: float = 0.08
 
 var speed: float = INITIAL_SPEED
 
