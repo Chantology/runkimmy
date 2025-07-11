@@ -3,6 +3,7 @@ class_name ChunkManager extends Node2D
 var game: Game
 
 @export var chunk_scenes: Array[PackedScene] = [
+	preload("res://scenes/chunks/chunk_0.tscn"),
 	preload("res://scenes/chunks/chunk_1.tscn"),
 	preload("res://scenes/chunks/chunk_2.tscn"),
 	preload("res://scenes/chunks/chunk_3.tscn"),
@@ -27,22 +28,22 @@ var active_chunks: Array[Chunk] = []
 var chunk_pool: Array[Chunk] = []  # Pool of reusable chunks
 
 var speed_thresholds_dictionary: Dictionary = {
-	2.0: [0],
-	2.01: [1, 2, 3, 15],
-	3: [1, 2, 3, 4, 15],
-	4: [3, 4, 5, 6, 15],
-	6: [5, 6, 7, 8, 14, 15],
-	8: [7, 8, 9, 10, 15],
-	10: [9, 10, 11, 12, 15],
-	12: [4, 5, 14, 15],
-	14: [4, 5, 15],
-	16: [4, 5, 15],
-	18: [4, 5, 15],
-	20: [4, 5, 14, 15],
-	22: [4, 5, 15],
-	24: [4, 5, 15],
-	26: [4, 5, 14, 15],
-	28: [4, 5, 15],
+	2.0: [1],
+	2.01: [2, 3, 4, 15],
+	3: [2, 3, 4, 5, 15],
+	4: [4, 5, 6, 7, 15],
+	6: [6, 7, 8, 9, 14, 15],
+	8: [8, 9, 10, 11, 15],
+	10: [10, 11, 12, 13, 15],
+	12: [5, 6, 14, 15],
+	14: [5, 6, 15],
+	16: [5, 6, 15],
+	18: [5, 6, 15],
+	20: [5, 6, 14, 15],
+	22: [5, 6, 15],
+	24: [5, 6, 15],
+	26: [5, 6, 14, 15],
+	28: [5, 6, 15],
 }
 
 var speed_thresholds: Array [SpeedThreshold] = []
