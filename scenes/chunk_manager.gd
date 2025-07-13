@@ -19,6 +19,11 @@ var game: Game
 	preload("res://scenes/chunks/chunk_13.tscn"),
 	preload("res://scenes/chunks/chunk_14.tscn"),
 	preload("res://scenes/chunks/chunk_15.tscn"),
+	preload("res://scenes/chunks/chunk_16.tscn"),
+	preload("res://scenes/chunks/chunk_17.tscn"),
+	preload("res://scenes/chunks/chunk_18.tscn"),
+	preload("res://scenes/chunks/chunk_19.tscn"),
+	preload("res://scenes/chunks/chunk_20.tscn"),
 ]
 
 @export var active_chunk_count: int = 3
@@ -29,21 +34,21 @@ var chunk_pool: Array[Chunk] = []  # Pool of reusable chunks
 
 var speed_thresholds_dictionary: Dictionary = {
 	2.0: [1],
-	2.01: [2, 3, 4, 15],
+	2.01: [2, 3, 4, 20],
 	3: [2, 3, 4, 5, 15],
 	4: [4, 5, 6, 7, 15],
 	6: [6, 7, 8, 9, 14, 15],
 	8: [8, 9, 10, 11, 15],
 	10: [10, 11, 12, 13, 15],
 	12: [5, 6, 14, 15],
-	14: [5, 6, 15],
-	16: [5, 6, 15],
-	18: [5, 6, 15],
+	14: [5, 6, 15, 19],
+	16: [5, 6, 15, 20],
+	18: [5, 6, 15, 16],
 	20: [5, 6, 14, 15],
-	22: [5, 6, 15],
-	24: [5, 6, 15],
+	22: [5, 6, 15, 18],
+	24: [5, 6, 15, 17],
 	26: [5, 6, 14, 15],
-	28: [5, 6, 15],
+	28: [5, 6, 15, 19],
 }
 
 var speed_thresholds: Array [SpeedThreshold] = []
