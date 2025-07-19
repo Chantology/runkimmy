@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8kr20qhbad76"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_mr266"]
+
+[node name="Chunk_22" instance=ExtResource("1_mr266")]
