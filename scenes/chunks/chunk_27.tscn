@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckkktk2aobkl4"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_s7tvu"]
+[ext_resource type="PackedScene" uid="uid://c5kql2so356xb" path="res://scenes/obstacles/garbage_bag.tscn" id="2_y777x"]
+
+[node name="Chunk_27" instance=ExtResource("1_s7tvu")]
+
+[node name="GarbageBag" parent="Obstacles" index="0" instance=ExtResource("2_y777x")]
+position = Vector2(64, 290)
+
+[node name="GarbageBag2" parent="Obstacles" index="1" instance=ExtResource("2_y777x")]
+position = Vector2(230, 290)
+
+[node name="GarbageBag3" parent="Obstacles" index="2" instance=ExtResource("2_y777x")]
+position = Vector2(415, 290)
+
+[node name="GarbageBag4" parent="Obstacles" index="3" instance=ExtResource("2_y777x")]
+position = Vector2(562, 290)
