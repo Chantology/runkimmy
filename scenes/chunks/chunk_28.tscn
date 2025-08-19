@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://drjnipkupijl6"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_i4s26"]
+[ext_resource type="PackedScene" uid="uid://8qdbtqvsfe1m" path="res://scenes/obstacles/barrel.tscn" id="2_w35ts"]
+[ext_resource type="PackedScene" uid="uid://dbo6nvgi5g5lv" path="res://scenes/obstacles/box.tscn" id="3_v7odv"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="4_2ha5o"]
+[ext_resource type="Texture2D" uid="uid://dottblsowmku0" path="res://assets/sprites/platform.png" id="5_6vion"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5sou"]
+size = Vector2(192, 2)
+
+[node name="Chunk_28" instance=ExtResource("1_i4s26")]
+
+[node name="Barrel" parent="Obstacles" index="0" instance=ExtResource("2_w35ts")]
+position = Vector2(506, 291)
+
+[node name="Box" parent="Obstacles" index="1" instance=ExtResource("3_v7odv")]
+position = Vector2(194, 163)
+
+[node name="Pickup3" parent="Pickups" index="0" instance=ExtResource("4_2ha5o")]
+position = Vector2(200, 66)
+
+[node name="Platform2" type="StaticBody2D" parent="." index="4"]
+position = Vector2(167, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2" index="0"]
+texture_repeat = 2
+texture = ExtResource("5_6vion")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" index="1"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_p5sou")
+one_way_collision = true

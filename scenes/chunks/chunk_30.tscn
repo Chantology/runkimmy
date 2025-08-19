@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbqvr30h3pvhi"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_spavc"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="2_ba2ng"]
+
+[node name="Chunk_30" instance=ExtResource("1_spavc")]
+
+[node name="Ground" parent="StaticBody2D" index="0"]
+region_rect = Rect2(0, 0, 320, 128)
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("2_ba2ng")]
+position = Vector2(211, 250)
+
+[node name="Pickup2" parent="Pickups" index="1" instance=ExtResource("2_ba2ng")]
+position = Vector2(320, 250)
+
+[node name="Pickup3" parent="Pickups" index="2" instance=ExtResource("2_ba2ng")]
+position = Vector2(429, 250)
+
+[node name="Pickup4" parent="Pickups" index="3" instance=ExtResource("2_ba2ng")]
+position = Vector2(211, 198)
+
+[node name="Pickup5" parent="Pickups" index="4" instance=ExtResource("2_ba2ng")]
+position = Vector2(320, 198)
+
+[node name="Pickup6" parent="Pickups" index="5" instance=ExtResource("2_ba2ng")]
+position = Vector2(429, 198)

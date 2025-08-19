@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnuejh8xpysor"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_opqq4"]
+[ext_resource type="Texture2D" uid="uid://dottblsowmku0" path="res://assets/sprites/platform.png" id="2_rjbo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6w3ki"]
+size = Vector2(192, 2)
+
+[node name="Chunk_20" instance=ExtResource("1_opqq4")]
+
+[node name="Platform" type="StaticBody2D" parent="." index="4"]
+position = Vector2(175, 215)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform" index="0"]
+texture_repeat = 2
+texture = ExtResource("2_rjbo3")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" index="1"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_6w3ki")
+one_way_collision = true
+
+[node name="Platform2" type="StaticBody2D" parent="." index="5"]
+position = Vector2(472, 215)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2" index="0"]
+texture_repeat = 2
+texture = ExtResource("2_rjbo3")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" index="1"]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_6w3ki")
+one_way_collision = true

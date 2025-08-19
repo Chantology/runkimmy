@@ -3,6 +3,7 @@ class_name ChunkManager extends Node2D
 var game: Game
 
 @export var chunk_scenes: Array[PackedScene] = [
+	preload("res://scenes/chunks/chunk_0.tscn"),
 	preload("res://scenes/chunks/chunk_1.tscn"),
 	preload("res://scenes/chunks/chunk_2.tscn"),
 	preload("res://scenes/chunks/chunk_3.tscn"),
@@ -16,6 +17,23 @@ var game: Game
 	preload("res://scenes/chunks/chunk_11.tscn"),
 	preload("res://scenes/chunks/chunk_12.tscn"),
 	preload("res://scenes/chunks/chunk_13.tscn"),
+	preload("res://scenes/chunks/chunk_14.tscn"),
+	preload("res://scenes/chunks/chunk_15.tscn"),
+	preload("res://scenes/chunks/chunk_16.tscn"),
+	preload("res://scenes/chunks/chunk_17.tscn"),
+	preload("res://scenes/chunks/chunk_18.tscn"),
+	preload("res://scenes/chunks/chunk_19.tscn"),
+	preload("res://scenes/chunks/chunk_20.tscn"),
+	preload("res://scenes/chunks/chunk_21.tscn"),
+	preload("res://scenes/chunks/chunk_22.tscn"),
+	preload("res://scenes/chunks/chunk_23.tscn"),
+	preload("res://scenes/chunks/chunk_24.tscn"),
+	preload("res://scenes/chunks/chunk_25.tscn"),
+	preload("res://scenes/chunks/chunk_26.tscn"),
+	preload("res://scenes/chunks/chunk_27.tscn"),
+	preload("res://scenes/chunks/chunk_28.tscn"),
+	preload("res://scenes/chunks/chunk_29.tscn"),
+	preload("res://scenes/chunks/chunk_30.tscn"),
 ]
 
 @export var active_chunk_count: int = 3
@@ -25,22 +43,22 @@ var active_chunks: Array[Chunk] = []
 var chunk_pool: Array[Chunk] = []  # Pool of reusable chunks
 
 var speed_thresholds_dictionary: Dictionary = {
-	2.0: [0],
-	2.01: [1, 2, 3],
-	3: [1, 2, 3, 4],
-	4: [3, 4, 5, 6],
-	6: [5, 6, 7, 8],
-	8: [7, 8, 9, 10],
-	10: [9, 10, 11, 12],
-	12: [4, 5],
-	14: [4, 5],
-	16: [4, 5],
-	18: [4, 5],
-	20: [4, 5],
-	22: [4, 5],
-	24: [4, 5],
-	26: [4, 5],
-	28: [4, 5],
+	2.0: [1],
+	2.01: [2, 3, 4, 20],
+	3: [2, 3, 4, 5, 15],
+	4: [4, 5, 6, 7, 15],
+	6: [6, 7, 8, 9, 14, 15],
+	8: [8, 9, 10, 11, 15],
+	10: [10, 11, 12, 13, 15],
+	12: [5, 6, 14, 15, 22],
+	14: [5, 6, 15, 19, 23],
+	16: [5, 6, 15, 20, 24],
+	18: [5, 6, 15, 16, 25],
+	20: [5, 6, 14, 15, 26],
+	22: [5, 6, 15, 18, 25, 27],
+	24: [5, 6, 15, 17, 24, 28],
+	26: [5, 6, 14, 15, 23, 29],
+	28: [5, 6, 15, 19, 22, 30],
 }
 
 var speed_thresholds: Array [SpeedThreshold] = []

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bob52l7qumv63"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_trjyd"]
+[ext_resource type="PackedScene" uid="uid://svh22uxsvspt" path="res://scenes/obstacles/bin.tscn" id="2_y5ae8"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="3_076vc"]
+
+[node name="Chunk_16" instance=ExtResource("1_trjyd")]
+
+[node name="Bin" parent="Obstacles" index="0" instance=ExtResource("2_y5ae8")]
+position = Vector2(147, 291)
+
+[node name="Bin2" parent="Obstacles" index="1" instance=ExtResource("2_y5ae8")]
+position = Vector2(464, 291)
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("3_076vc")]
+position = Vector2(315, 185)

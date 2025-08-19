@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://7wxhhhsbjubt"]
+
+[ext_resource type="PackedScene" uid="uid://gu08y4gx6hyi" path="res://scenes/chunks/chunk_0.tscn" id="1_3ld4x"]
+[ext_resource type="PackedScene" uid="uid://d0tbym61kfyno" path="res://scenes/pickups/pickup.tscn" id="2_mywrc"]
+
+[node name="Chunk_21" instance=ExtResource("1_3ld4x")]
+
+[node name="Pickup" parent="Pickups" index="0" instance=ExtResource("2_mywrc")]
+position = Vector2(63, 274)
+
+[node name="Pickup2" parent="Pickups" index="1" instance=ExtResource("2_mywrc")]
+position = Vector2(122, 274)
+
+[node name="Pickup3" parent="Pickups" index="2" instance=ExtResource("2_mywrc")]
+position = Vector2(183, 274)
+
+[node name="Pickup4" parent="Pickups" index="3" instance=ExtResource("2_mywrc")]
+position = Vector2(246, 274)
+
+[node name="Pickup5" parent="Pickups" index="4" instance=ExtResource("2_mywrc")]
+position = Vector2(304, 274)
+
+[node name="Pickup6" parent="Pickups" index="5" instance=ExtResource("2_mywrc")]
+position = Vector2(361, 274)
+
+[node name="Pickup7" parent="Pickups" index="6" instance=ExtResource("2_mywrc")]
+position = Vector2(425, 274)
+
+[node name="Pickup8" parent="Pickups" index="7" instance=ExtResource("2_mywrc")]
+position = Vector2(485, 274)
+
+[node name="Pickup9" parent="Pickups" index="8" instance=ExtResource("2_mywrc")]
+position = Vector2(540, 274)
+
+[node name="Pickup10" parent="Pickups" index="9" instance=ExtResource("2_mywrc")]
+position = Vector2(588, 274)
