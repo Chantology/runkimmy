@@ -1,0 +1,294 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc5dlu2badidm"]
+
+[ext_resource type="Theme" uid="uid://dcoyawjnhbe7x" path="res://Themes/main_theme.tres" id="1_ck355"]
+[ext_resource type="Shader" path="res://Shaders/sunset_test_shader.gdshader" id="2_mtx0m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e8kcf"]
+shader = ExtResource("2_mtx0m")
+shader_parameter/intensity = 0.8
+shader_parameter/horizon_height = 0.429
+shader_parameter/horizon_softness = 0.25
+shader_parameter/top_color = Color(0.99, 0.58, 0.37, 1)
+shader_parameter/horizon_color = Color(0.98, 0.32, 0.21, 1)
+shader_parameter/bottom_color = Color(0.255398, 0.109529, 0.347012, 1)
+shader_parameter/sun_pos = Vector2(0.5, 0.35)
+shader_parameter/sun_radius = 0.18
+shader_parameter/sun_softness = 0.55
+shader_parameter/sun_color = Color(1, 0.78, 0.45, 1)
+shader_parameter/vignette_strength = 0.35
+shader_parameter/vignette_roundness = 1.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw8hv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4jkq"]
+bg_color = Color(0.929412, 0.545098, 0.431373, 1)
+
+[node name="ScoreBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ck355")
+
+[node name="Panel" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_e8kcf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gw8hv")
+
+[node name="maincontainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pad" type="MarginContainer" parent="maincontainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="maincontainer"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="maincontainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="maincontainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/HBoxContainer"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pad2" type="MarginContainer" parent="maincontainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="maincontainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="maincontainer/ScrollContainer"]
+custom_minimum_size = Vector2(1280, 540)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="maincontainer/ScrollContainer/Control"]
+custom_minimum_size = Vector2(1280, 540)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="maincontainer/ScrollContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="toppad" type="MarginContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="userdetail" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "The Greatest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "9999999999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail2" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail2"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail2"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Speed Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail2"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "9999999999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail3" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail3"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail3"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "To Have"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail3"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "9999999999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail4" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail4"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail4"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Ever"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail4"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "9999999999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail5" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail5"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail5"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Lived"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail5"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "9999999999"
+horizontal_alignment = 1
+vertical_alignment = 1

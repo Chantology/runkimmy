@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnp1rftnmbigf"]
+
+[ext_resource type="Theme" uid="uid://bvct7nd3bre6f" path="res://Themes/achievements_theme.tres" id="1_u8cl8"]
+[ext_resource type="PackedScene" uid="uid://c84h4pyq7rsux" path="res://scenes/UI/achievement.tscn" id="2_hj6du"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ye40h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv1nv"]
+bg_color = Color(0.952941, 0.721569, 0.486275, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.333495, 0.216531, 0.324135, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw0ce"]
+bg_color = Color(0.952941, 0.721569, 0.486275, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.333495, 0.216531, 0.324135, 1)
+
+[node name="achievements" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u8cl8")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(0.20871, 0.20871, 0.20871, 0.4)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ye40h")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1800, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+custom_minimum_size = Vector2(1780, 980)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -890.0
+offset_top = -390.0
+offset_right = 890.0
+offset_bottom = 390.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="achievements" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_tv1nv")
+text = "Achievements"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1008, 0)
+layout_mode = 2
+
+[node name="unlocked" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_uw0ce")
+text = "3/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="achievement_list" type="GridContainer" parent="Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/v_separation = 16
+columns = 5
+
+[node name="achievement" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement2" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement3" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement4" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement5" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement6" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement7" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement8" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement9" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
