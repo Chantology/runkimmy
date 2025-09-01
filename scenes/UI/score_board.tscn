@@ -1,27 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc5dlu2badidm"]
+[gd_scene load_steps=7 format=3 uid="uid://bc5dlu2badidm"]
 
 [ext_resource type="Theme" uid="uid://dcoyawjnhbe7x" path="res://Themes/main_theme.tres" id="1_ck355"]
 [ext_resource type="Shader" path="res://Shaders/sunset_test_shader.gdshader" id="2_mtx0m"]
+[ext_resource type="FontFile" uid="uid://bpyy3iamlfxuu" path="res://assets/fonts/DejaVuSans-BoldOblique.ttf" id="3_cnuss"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e8kcf"]
 shader = ExtResource("2_mtx0m")
-shader_parameter/intensity = 0.8
-shader_parameter/horizon_height = 0.429
-shader_parameter/horizon_softness = 0.25
+shader_parameter/intensity = 1.0
+shader_parameter/horizon_height = 0.405
+shader_parameter/horizon_softness = 0.66
 shader_parameter/top_color = Color(0.99, 0.58, 0.37, 1)
 shader_parameter/horizon_color = Color(0.98, 0.32, 0.21, 1)
 shader_parameter/bottom_color = Color(0.255398, 0.109529, 0.347012, 1)
-shader_parameter/sun_pos = Vector2(0.5, 0.35)
-shader_parameter/sun_radius = 0.18
+shader_parameter/sun_pos = Vector2(0.525, 0.82)
+shader_parameter/sun_radius = 0.312
 shader_parameter/sun_softness = 0.55
 shader_parameter/sun_color = Color(1, 0.78, 0.45, 1)
-shader_parameter/vignette_strength = 0.35
+shader_parameter/vignette_strength = 0.326
 shader_parameter/vignette_roundness = 1.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw8hv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4jkq"]
-bg_color = Color(0.929412, 0.545098, 0.431373, 1)
+bg_color = Color(0.792157, 0.596078, 0.623529, 1)
 
 [node name="ScoreBoard" type="Control"]
 layout_mode = 3
@@ -54,11 +55,19 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="maincontainer"]
+[node name="TitleLabel" type="Label" parent="maincontainer"]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 80
+theme = ExtResource("1_ck355")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(0.458824, 0.729412, 0.647059, 1)
+theme_override_colors/font_shadow_color = Color(0.105882, 0.219608, 0.188235, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 6
+theme_override_fonts/font = ExtResource("3_cnuss")
+theme_override_font_sizes/font_size = 60
 text = "Leaderboard"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -161,7 +170,7 @@ custom_minimum_size = Vector2(308, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
-text = "9999999999"
+text = "999999"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -193,7 +202,7 @@ custom_minimum_size = Vector2(308, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
-text = "9999999999"
+text = "999999"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -225,7 +234,7 @@ custom_minimum_size = Vector2(308, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
-text = "9999999999"
+text = "999999"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -257,7 +266,7 @@ custom_minimum_size = Vector2(308, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
-text = "9999999999"
+text = "25000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -289,6 +298,198 @@ custom_minimum_size = Vector2(308, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
-text = "9999999999"
+text = "150"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail6" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail6"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail6"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Lived"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail6"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "150"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail7" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail7"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail7"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Lived"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail7"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "150"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail8" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail8"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail8"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Lived"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail8"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "150"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail9" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail9"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail9"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Lived"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail9"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "150"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail10" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail10"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail10"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Lived"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail10"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "150"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="userdetail11" type="HBoxContainer" parent="maincontainer/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+alignment = 1
+
+[node name="Rank" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail11"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail11"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "Lived"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="maincontainer/ScrollContainer/Control/VBoxContainer/userdetail11"]
+custom_minimum_size = Vector2(308, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_o4jkq")
+text = "150"
 horizontal_alignment = 1
 vertical_alignment = 1

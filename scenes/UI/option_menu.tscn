@@ -100,7 +100,12 @@ texture_pressed = ExtResource("3_keb2x")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Achievement" type="Button" parent="VBoxContainer"]
+[node name="Leaderboard" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(32, 128)
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="Achievements" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(32, 128)
 layout_mode = 2
 text = "Achievements"
@@ -109,8 +114,3 @@ text = "Achievements"
 custom_minimum_size = Vector2(32, 128)
 layout_mode = 2
 text = "Credits"
-
-[node name="Language" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(32, 128)
-layout_mode = 2
-text = "Language"

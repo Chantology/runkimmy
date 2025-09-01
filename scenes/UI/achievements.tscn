@@ -135,3 +135,24 @@ layout_mode = 2
 
 [node name="achievement9" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
 layout_mode = 2
+
+[node name="achievement10" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement11" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement12" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement13" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement14" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="achievement15" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/ScrollContainer/achievement_list"]
+layout_mode = 2

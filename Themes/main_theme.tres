@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dcoyawjnhbe7x"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dcoyawjnhbe7x"]
 
+[ext_resource type="FontFile" uid="uid://bpyy3iamlfxuu" path="res://assets/fonts/DejaVuSans-BoldOblique.ttf" id="1_prglx"]
 [ext_resource type="FontFile" uid="uid://b8jp6aj0l7sm7" path="res://assets/fonts/Secca W03 Extra Bold.ttf" id="1_rjsyx"]
+[ext_resource type="FontFile" uid="uid://d1lbldfvujlom" path="res://assets/fonts/MotionControl-Bold.otf" id="2_t1bta"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lftb5"]
 bg_color = Color(0.952941, 0.721569, 0.486275, 0.658824)
@@ -11,20 +13,20 @@ border_width_bottom = 8
 border_color = Color(0.333495, 0.216531, 0.324135, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnf5c"]
-bg_color = Color(0.952941, 0.721569, 0.486275, 0.658824)
+bg_color = Color(0.792157, 0.596078, 0.623529, 1)
 border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
-border_color = Color(0.670588, 0.494118, 0.654902, 1)
+border_color = Color(0.721395, 0.46783, 0.630766, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr60g"]
-bg_color = Color(0.670588, 0.494118, 0.654902, 1)
+bg_color = Color(0.196078, 0.121569, 0.172549, 1)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(0.952941, 0.721569, 0.486275, 1)
+border_color = Color(0.196078, 0.121569, 0.172549, 1)
 
 [resource]
 default_font = ExtResource("1_rjsyx")
@@ -34,8 +36,20 @@ Button/colors/font_outline_color = Color(0.105882, 0.219608, 0.188235, 1)
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 64
 Button/styles/normal = SubResource("StyleBoxFlat_lftb5")
-Label/colors/font_color = Color(0.460116, 0.730879, 0.647179, 1)
+Headline/base_type = &"Label"
+Headline/colors/font_color = Color(0.458824, 0.729412, 0.647059, 1)
+Headline/colors/font_outline_color = Color(0.105882, 0.219608, 0.188235, 1)
+Headline/colors/font_shadow_color = Color(0, 0, 0, 0)
+Headline/constants/line_spacing = 3
+Headline/constants/outline_size = 8
+Headline/constants/shadow_offset_x = 1
+Headline/constants/shadow_offset_y = 1
+Headline/constants/shadow_outline_size = 1
+Headline/fonts/font = ExtResource("1_prglx")
+Headline/styles/normal = null
+Label/colors/font_color = Color(0.768307, 0.928892, 0.874023, 1)
 Label/colors/font_outline_color = Color(0.105985, 0.220186, 0.18643, 1)
-Label/constants/outline_size = 8
+Label/constants/outline_size = 10
+Label/fonts/font = ExtResource("2_t1bta")
 Label/styles/normal = SubResource("StyleBoxFlat_tnf5c")
 Panel/styles/panel = SubResource("StyleBoxFlat_yr60g")
