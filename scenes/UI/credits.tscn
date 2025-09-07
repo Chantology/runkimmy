@@ -124,13 +124,13 @@ layout_mode = 2
 [node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators4"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Logo Design"
+text = "Game Director & Producer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators4"]
 layout_mode = 2
-text = "Benjamin Broschinksi"
+text = "Chan"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -140,7 +140,7 @@ layout_mode = 2
 [node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators5"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "???"
+text = "Sound & Music "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -169,16 +169,10 @@ vertical_alignment = 1
 [node name="creators7" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators7"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Game Director & Producer"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators7"]
 layout_mode = 2
-text = "Chan"
+text = "Sound Effects and Music from
+OpenGameArt.org  "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -195,8 +189,6 @@ layout_mode = 2
 
 [node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators8"]
 layout_mode = 2
-text = "Sound Effects and Music from
-OpenGameArt.org  "
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -248,7 +240,6 @@ layout_mode = 2
 [node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators11"]
 layout_mode = 2
 text = "Benjamin Broschinski
-Alex Dietrich
 Alex Frey
 Studio Soi  
 SoyBloQ  
