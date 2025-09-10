@@ -34,6 +34,12 @@ window/stretch/mode="canvas_items"
 
 movie_writer/movie_file="E:/Godot/Projects/runkimmy/builds/run-kimmy-run.avi"
 
+[file_customization]
+
+folder_colors={
+"res://Themes/": "pink"
+}
+
 [input]
 
 jump={

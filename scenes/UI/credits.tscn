@@ -1,0 +1,270 @@
+[gd_scene load_steps=4 format=3 uid="uid://28lj41yusoql"]
+
+[ext_resource type="Theme" uid="uid://duboe2usd7taw" path="res://Themes/credits_theme.tres" id="1_tjgji"]
+[ext_resource type="Texture2D" uid="uid://beydxrd84f0r8" path="res://assets/sprites/user_interface/logo_vertical_color_light.png" id="2_ls36d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjtga"]
+bg_color = Color(0.952941, 0.721569, 0.486275, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.333495, 0.216531, 0.324135, 1)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="list" type="Panel" parent="."]
+custom_minimum_size = Vector2(1900, 1020)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tjgji")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="list"]
+custom_minimum_size = Vector2(1880, 1000)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="list/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_rjtga")
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="list/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 4
+
+[node name="creators" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Character Design & Animation"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators"]
+layout_mode = 2
+text = "Alexander Dietrich"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creators2" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Title Design"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators2"]
+layout_mode = 2
+text = "Tanja Stoof"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creators3" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Menu Design"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators3"]
+layout_mode = 2
+text = "Laith R"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creators4" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Game Director & Producer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators4"]
+layout_mode = 2
+text = "Chan"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creators5" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators5"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Sound & Music "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators5"]
+layout_mode = 2
+text = "Sophia Menhorn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creators6" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="list/VBoxContainer/GridContainer/creators6"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Lead Programmer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators6"]
+layout_mode = 2
+text = "Bau Rawson"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creators7" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators7"]
+layout_mode = 2
+text = "Sound Effects and Music from
+OpenGameArt.org  "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="list/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="list/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="creators8" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators8"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="thanks" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/thanks"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 64
+text = "Special Thanks "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer5" type="MarginContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer6" type="MarginContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer7" type="MarginContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="creators10" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators10"]
+layout_mode = 2
+text = "Paul Schicketanz 
+Falko Paeper 
+Ole Bohnacker 
+Niklas Wolff 
+Isabella Krämer 
+Heiko Snack 
+Sophie Rekasowski"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creators11" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators11"]
+layout_mode = 2
+text = "Benjamin Broschinski
+Alex Frey
+Studio Soi  
+SoyBloQ  
+WOODBLOCK  
+The Deep Learning Gang
+© Chantology 2025"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="creators9" type="VBoxContainer" parent="list/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="list/VBoxContainer/GridContainer/creators9"]
+layout_mode = 2
+text = "Made With 
+Godot Engine"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="list/VBoxContainer/GridContainer/creators9"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="list/VBoxContainer/GridContainer/creators9/HBoxContainer"]
+custom_minimum_size = Vector2(218, 218)
+layout_mode = 2
+texture = ExtResource("2_ls36d")
+expand_mode = 1
