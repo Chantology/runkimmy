@@ -1,7 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnp1rftnmbigf"]
+[gd_scene load_steps=21 format=3 uid="uid://bnp1rftnmbigf"]
 
 [ext_resource type="Theme" uid="uid://bvct7nd3bre6f" path="res://Themes/achievements_theme.tres" id="1_u8cl8"]
-[ext_resource type="PackedScene" uid="uid://c84h4pyq7rsux" path="res://scenes/UI/achievement.tscn" id="2_hj6du"]
+[ext_resource type="PackedScene" uid="uid://c84h4pyq7rsux" path="res://scenes/UI/Achievements/achievement_01.tscn" id="2_hj6du"]
+[ext_resource type="PackedScene" uid="uid://djxtfidce45w8" path="res://scenes/UI/Achievements/achievement_02.tscn" id="3_1w322"]
+[ext_resource type="PackedScene" uid="uid://bont17g3jqel4" path="res://scenes/UI/Achievements/achievement_03.tscn" id="4_dpsuv"]
+[ext_resource type="PackedScene" uid="uid://k4bbsbmlbso" path="res://scenes/UI/Achievements/achievement_04.tscn" id="5_fqta5"]
+[ext_resource type="PackedScene" uid="uid://fvhmq8mubq8" path="res://scenes/UI/Achievements/achievement_05.tscn" id="6_4m7ba"]
+[ext_resource type="PackedScene" uid="uid://d350hidd65fi" path="res://scenes/UI/Achievements/achievement_06.tscn" id="7_38qv4"]
+[ext_resource type="PackedScene" uid="uid://dw7ci4ecb5t3l" path="res://scenes/UI/Achievements/achievement_07.tscn" id="8_bxgmd"]
+[ext_resource type="PackedScene" uid="uid://doa1bw8i08arw" path="res://scenes/UI/Achievements/achievement_08.tscn" id="9_w18fy"]
+[ext_resource type="PackedScene" uid="uid://bt0r6mqwv8y3l" path="res://scenes/UI/Achievements/achievement_09.tscn" id="10_4fqw6"]
+[ext_resource type="PackedScene" uid="uid://3a1udjjo8mio" path="res://scenes/UI/Achievements/achievement_10.tscn" id="11_nmruj"]
+[ext_resource type="PackedScene" uid="uid://c0ixd110u7fc3" path="res://scenes/UI/Achievements/achievement_11.tscn" id="12_5rx0y"]
+[ext_resource type="PackedScene" uid="uid://bsb87jxwiu0nj" path="res://scenes/UI/Achievements/achievement_12.tscn" id="13_omar4"]
+[ext_resource type="PackedScene" uid="uid://bufcgecexfjg6" path="res://scenes/UI/Achievements/achievement_13.tscn" id="14_6un2p"]
+[ext_resource type="PackedScene" uid="uid://b3p5f7psndox1" path="res://scenes/UI/Achievements/achievement_14.tscn" id="15_8spik"]
+[ext_resource type="PackedScene" uid="uid://ddeiiv0v20u4d" path="res://scenes/UI/Achievements/achievement_15.tscn" id="16_0trwe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ye40h"]
 
@@ -20,6 +34,9 @@ border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
 border_color = Color(0.333495, 0.216531, 0.324135, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bc2w"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.8)
 
 [node name="achievements" type="Control"]
 layout_mode = 3
@@ -48,12 +65,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -900.0
+offset_top = -500.0
+offset_right = 930.0
+offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_u8cl8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 custom_minimum_size = Vector2(1780, 980)
@@ -109,49 +127,55 @@ size_flags_vertical = 3
 theme_override_constants/v_separation = 16
 columns = 5
 
-[node name="achievement" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_01" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
 layout_mode = 2
 
-[node name="achievement2" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_02" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("3_1w322")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bc2w")
+
+[node name="achievement_03" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("4_dpsuv")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bc2w")
+
+[node name="achievement_04" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("5_fqta5")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bc2w")
+
+[node name="achievement_05" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("6_4m7ba")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bc2w")
+
+[node name="achievement_06" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("7_38qv4")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bc2w")
+
+[node name="achievement_07" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("8_bxgmd")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bc2w")
+
+[node name="achievement_08" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("9_w18fy")]
 layout_mode = 2
 
-[node name="achievement3" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_09" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("10_4fqw6")]
 layout_mode = 2
 
-[node name="achievement4" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_10" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("11_nmruj")]
 layout_mode = 2
 
-[node name="achievement5" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_11" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("12_5rx0y")]
 layout_mode = 2
 
-[node name="achievement6" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_12" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("13_omar4")]
 layout_mode = 2
 
-[node name="achievement7" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_13" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("14_6un2p")]
 layout_mode = 2
 
-[node name="achievement8" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_14" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("15_8spik")]
 layout_mode = 2
 
-[node name="achievement9" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
-layout_mode = 2
-
-[node name="achievement10" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
-layout_mode = 2
-
-[node name="achievement11" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
-layout_mode = 2
-
-[node name="achievement12" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
-layout_mode = 2
-
-[node name="achievement13" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
-layout_mode = 2
-
-[node name="achievement14" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
-layout_mode = 2
-
-[node name="achievement15" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("2_hj6du")]
+[node name="achievement_15" parent="Panel/VBoxContainer/ScrollContainer/achievement_list" instance=ExtResource("16_0trwe")]
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/ScrollContainer/achievement_list"]

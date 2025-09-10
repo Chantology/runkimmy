@@ -20,6 +20,7 @@ shader_parameter/vignette_strength = 0.326
 shader_parameter/vignette_roundness = 1.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw8hv"]
+bg_color = Color(0.670588, 0.494118, 0.654902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4jkq"]
 bg_color = Color(0.792157, 0.596078, 0.623529, 1)
